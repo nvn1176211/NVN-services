@@ -45,12 +45,8 @@ class EventController extends Controller
         return [
             'events' => $events,
             'links' => [
-                'create' => route('events.getCreate'),
                 'store' => route('api.events.store'),
-            ],
-            'meta' => [
-                'see_more' => $see_more,
-            ],
+            ]
         ];
     }
 
