@@ -58,13 +58,21 @@ class EventController extends Controller
         ->join('event_tags', 'events.tag_id', '=', 'event_tags.id')
         ->select('events.id', 'events.thumbnail', 'events.year', 'events.content', 'events.created_at', 'user.username as created_by', 'event_tags.name')
         ->first();
-        $another_versions = Event::where('events.id', $id)
+        $o_another_versions = Event::where('events.id', $id)
         ->join('event_tags', 'events.tag_id', 'event_tags.id')
         ->join('event_other_versions', 'event_tags.id', 'event_other_versions.tag_id')
         ->join('user', 'event_other_versions.created_by', 'user.id')
         ->select('event_other_versions.id', 'event_other_versions.created_at', 'user.username as created_by')
         ->orderBy('created_at', 'desc')
         ->get();
+        $another_versions = [];
+        foreach($o_another_versions as $item){
+            $another_versions[] = [
+                'link' => route('api.events.other_versions', $item->id),
+                'created_at' => $item->created_at,
+                'created_by' => $item->created_by,
+            ];
+        }
         $thumbnailLink = route('api.event.thumbnail', ['id' => $id]);
         return [
             'event' => $event,
@@ -94,6 +102,7 @@ class EventController extends Controller
     //api
     public function store(StoreEventRequest $request)
     {
+        $user = Auth::user();
         $file = $request->thumbnail;
         $requestTime = getdate()[0];
         $filename = $requestTime.'.'.$file->getClientOriginalExtension();
@@ -106,8 +115,8 @@ class EventController extends Controller
             'mon' => $datetimeInfo['mon'],
             'mday' => $datetimeInfo['mday'],
             'content' => $request->content,
-            'created_by' => 1,
-            'updated_by' => 1,
+            'created_by' => $user->id,
+            'updated_by' => $user->id,
         ];
         $newEvent = new Event;
         $newEvent->tag_id = $newData['tag_id'];
@@ -135,9 +144,14 @@ class EventController extends Controller
     //api
     public function apiThumbnail($id)
     {
-        $thumbnail = Event::find($id)->thumbnail;
-        $filepath = storage_path('app/public/uploads/'.$thumbnail);
-        return Response::download($filepath); 
+        $url = 'https://live.staticflickr.com/65535/53317112738_0b276efde9_z.jpg';
+        return response(file_get_contents($url), 200, [
+            'Content-Disposition' => 'attachment; filename="filename.png"',
+        ]);
+        
+        // $thumbnail = Event::find($id)->thumbnail;
+        // $filepath = storage_path('app/public/uploads/'.$thumbnail);
+        // return Response::download($filepath); 
     }
 
     /**
@@ -147,6 +161,11 @@ class EventController extends Controller
      */
     public function delete($eventId){
         $event = Event::find($eventId);
+        if(!$event){
+            return response()->json([
+                'message' => "Not found"
+            ], 404);
+        }
         $tag_id = $event->tag_id;
         $eventPagesRemain = DB::table('events')->where('events.tag_id', $tag_id)->unionAll(DB::table('event_other_versions')->where('event_other_versions.tag_id', $tag_id))->count();
         if($eventPagesRemain <= 1){

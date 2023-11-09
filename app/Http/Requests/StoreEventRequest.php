@@ -24,6 +24,7 @@ class StoreEventRequest extends FormRequest
     public function rules()
     {
         return [
+            'tag' => ['required'],
             'content' => ['required'],
             'datetime' => ['required'],
             'thumbnail' => ['required', 'image'],

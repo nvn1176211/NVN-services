@@ -34,5 +34,5 @@ Route::middleware('auth:admin_api')->group(function(){
 Route::get('events', 'EventController@index')->name('api.events');
 Route::get('event_tags', 'EventTagsController@index')->name('api.event_tags');
 Route::get('events/{id}', 'EventController@show');
-Route::get('events/other_version/{id}', 'EventController@showOtherVersion');
+Route::get('events/other_version/{id}', 'EventController@showOtherVersion')->name('api.events.other_versions');
 Route::get('events/{id}/thumbnail', 'EventController@apiThumbnail')->name('api.event.thumbnail');
