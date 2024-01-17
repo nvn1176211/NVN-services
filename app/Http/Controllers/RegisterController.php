@@ -38,6 +38,10 @@ class RegisterController extends Controller
         $user->save();
         $user->generateToken();
         Mail::to($request->email)->send(new SuccessRegister());
-        return $user;
+        return [
+            "username" => $user->username,
+            "api_token" => $user->api_token,
+            "is_admin" => UserController::isAdmin($user),
+        ];
     }
 }
