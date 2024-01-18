@@ -27,6 +27,8 @@ class LoginController extends Controller
             $user->generateToken();
             return [
                 'status' => 'Authorised',
+                'username' => $user->username,
+                'isAdmin' => UserController::isAdmin($user),
                 'api_token' => $user->api_token,
             ];       
         }else{
