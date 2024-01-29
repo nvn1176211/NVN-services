@@ -195,6 +195,11 @@ class EventController extends Controller
      */
     public function deleteOtherVersion($eventOtherVersionId){
         $eventOtherVersion = EventOtherVersion::find($eventOtherVersionId);
+        if(!$eventOtherVersion){
+            return response()->json([
+                'message' => "Not found"
+            ], 404);
+        }
         $eventOtherVersion->delete();
         return response()->json([
             'message' => 'Event page deleted.'
