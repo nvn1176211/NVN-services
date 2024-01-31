@@ -27,8 +27,10 @@ Route::middleware('auth:api')->group(function(){
 });
 
 Route::middleware('auth:admin_api')->group(function(){
-    Route::delete('events/{id}', 'EventController@delete');
-    Route::delete('events/other_version/{id}', 'EventController@deleteOtherVersion');
+    // Route::delete('events/{id}', 'EventController@delete');
+    // Route::delete('events/other_version/{id}', 'EventController@deleteOtherVersion');
+    Route::get('events/{id}/delete', 'EventController@delete');
+    Route::get('events/other_version/{id}/delete', 'EventController@deleteOtherVersion');
 });
 
 Route::get('events', 'EventController@index')->name('api.events');
