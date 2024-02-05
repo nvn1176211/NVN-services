@@ -22,6 +22,7 @@ Route::post('login', 'LoginController@login')->name('api.login');
 
 Route::middleware('auth:api')->group(function(){
     Route::post('events', 'EventController@store')->name('api.events.store');
+    Route::post('event_tags', 'EventTagsController@store')->name('api.event_tags.store');
     Route::get('user', 'UserController@index')->name('api.user');
     Route::post('logout', 'LoginController@logout')->name('api.logout');
 });
