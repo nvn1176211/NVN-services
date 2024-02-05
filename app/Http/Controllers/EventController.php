@@ -104,9 +104,6 @@ class EventController extends Controller
     {
         $user = Auth::user();
         $file = $request->thumbnail;
-        $requestTime = getdate()[0];
-        $filename = $requestTime.'.'.$file->getClientOriginalExtension();
-        $file->storeAs('public/uploads', $filename);
         $imgUrl = FlickrController::uploadPhoto($file);
         $datetimeInfo = getdate(strtotime($request->datetime));
         $newData = [
