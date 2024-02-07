@@ -68,7 +68,7 @@ class EventController extends Controller
         $another_versions = [];
         foreach($o_another_versions as $item){
             $another_versions[] = [
-                'link' => route('api.events.other_versions', $item->id),
+                'id' => $item->id,
                 'created_at' => $item->created_at,
                 'created_by' => $item->created_by,
             ];
