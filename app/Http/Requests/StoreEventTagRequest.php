@@ -24,7 +24,7 @@ class StoreEventTagRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'max:30', 'unique:event_tags,name'],
+            'name' => ['required', 'lowercase', 'max:30', 'unique:event_tags,name'],
         ];
     }
 }
