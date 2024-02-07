@@ -21,7 +21,7 @@ class EventTagsController extends Controller
     //api
     public function store(StoreEventTagRequest $request)
     {
-        EventTags::created([
+        EventTags::create([
             'name' => $request->name,
             'created_by'=> Auth::user()->id,
             'updated_by'=> Auth::user()->id,

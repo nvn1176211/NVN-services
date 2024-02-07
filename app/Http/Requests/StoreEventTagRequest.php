@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\Lowercase;
 
 class StoreEventTagRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class StoreEventTagRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'lowercase', 'max:30', 'unique:event_tags,name'],
+            'name' => ['required', new Lowercase, 'max:30', 'unique:event_tags,name'],
         ];
     }
 }
