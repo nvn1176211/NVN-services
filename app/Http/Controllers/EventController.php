@@ -56,20 +56,22 @@ class EventController extends Controller
         $event = Event::where('events.id', $id)
         ->join('user', 'events.created_by', 'user.id')
         ->join('event_tags', 'events.tag_id', '=', 'event_tags.id')
-        ->select('events.id', 'events.thumbnail', 'events.year', 'events.content', 'events.created_at', 'user.username as created_by', 'event_tags.name')
+        ->select('events.id', 'events.thumbnail', 'events.year', 'events.content', 'user.username as created_by', 'event_tags.name')
+        ->selectRaw('DATE_FORMAT(events.created_at, "%Y/%m/%d %H:%i") as f1_created_at')
         ->first();
         $o_another_versions = Event::where('events.id', $id)
         ->join('event_tags', 'events.tag_id', 'event_tags.id')
         ->join('event_other_versions', 'event_tags.id', 'event_other_versions.tag_id')
         ->join('user', 'event_other_versions.created_by', 'user.id')
-        ->select('event_other_versions.id', 'event_other_versions.created_at', 'user.username as created_by')
-        ->orderBy('created_at', 'desc')
+        ->select('event_other_versions.id', 'user.username as created_by')
+        ->selectRaw('DATE_FORMAT(event_other_versions.created_at, "%Y/%m/%d %H:%i") as av_create_at')
+        ->orderBy('av_create_at', 'desc')
         ->get();
         $another_versions = [];
         foreach($o_another_versions as $item){
             $another_versions[] = [
                 'id' => $item->id,
-                'created_at' => $item->created_at,
+                'f1_created_at' => $item->av_create_at,
                 'created_by' => $item->created_by,
             ];
         }
