@@ -89,8 +89,10 @@ class EventController extends Controller
     public function showOtherVersion($id)
     {
         $event = EventOtherVersion::where('event_other_versions.id', $id)
+        ->join('user', 'event_other_versions.created_by', 'user.id')
         ->join('event_tags', 'event_other_versions.tag_id', '=', 'event_tags.id')
-        ->select('event_other_versions.id', 'event_other_versions.thumbnail', 'event_other_versions.year', 'event_other_versions.content', 'event_tags.name')
+        ->select('event_other_versions.id', 'event_other_versions.thumbnail', 'event_other_versions.year', 'event_other_versions.content', 'event_tags.name', 'user.username as created_by')
+        ->selectRaw('DATE_FORMAT(event_other_versions.created_at, "%Y/%m/%d %H:%i") as f1_created_at')
         ->first();
         $thumbnailLink = route('api.event.thumbnail', ['id' => $id]);
         return [
