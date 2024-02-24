@@ -17,6 +17,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
         return [
+            "id" => $user->id,
             "username" => $user->username,
             "api_token" => $user->api_token,
             "is_admin" => $this->isAdmin($user),

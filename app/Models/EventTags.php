@@ -18,7 +18,7 @@ class EventTags extends Model
         return $this->hasMany(EventOtherVersion::class, 'tag_id', 'id');
     }
     
-    public function event(){
-        return $this->hasOne(Event::class, 'tag_id', 'id');
+    public function events(){
+        return $this->hasMany(Event::class, 'tag_id', 'id');
     }
 }
