@@ -14,7 +14,23 @@ class EventTagsController extends Controller
     public function index(Request $request)
     {
         $name = $request->search;
-        $eventTags = EventTags::where('name', 'like', '%'.$name.'%')->select('id', 'name', 'thumbnail')->get();
+        $eventTags = EventTags::where([
+            ['name', 'like', '%'.$name.'%'],
+            ['thumbnail', '<>', ''],
+        ]
+        )->select('id', 'name', 'thumbnail')->orderBy('updated_at', 'desc')->get();
+        return response()->json([
+            'eventTags' => $eventTags,
+            'links' => [
+                'store' => route('api.event_tags.store'),
+            ]
+        ], 200);
+    }
+
+    //api
+    public function simpleIndex()
+    {
+        $eventTags = EventTags::select('id', 'name')->orderBy('name', 'asc')->get();
         return response()->json([
             'eventTags' => $eventTags,
             'links' => [
@@ -44,7 +60,7 @@ class EventTagsController extends Controller
         })
         ->addSelect('events.id', 'events.thumbnail', 'events.votes', 'events.content', 'user.username as author_name')
         ->selectRaw('DATE_FORMAT(events.created_at, "%Y/%m/%d %H:%i") as f1_created_at')
-        ->orderBy('events.votes', 'desc')->orderBy('f1_created_at', 'desc')
+        ->orderBy('events.votes', 'desc')->orderBy('f1_created_at', 'asc')
         ->get();
         return response()->json([
             'event_tag' => $event_tag->select('name')->first(),

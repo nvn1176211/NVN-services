@@ -33,4 +33,6 @@ Route::middleware('auth:admin_api')->group(function(){
 });
 
 Route::get('event_tags', 'EventTagsController@index')->name('api.event_tags');
+Route::get('simple_event_tags', 'EventTagsController@simpleIndex');
 Route::get('event_tags/{id}', 'EventTagsController@show');
+Route::get('cors_img', 'EventController@corsImg')->name('api.cors_img');
