@@ -37,7 +37,10 @@ class RegisterController extends Controller
         $user->fill($data);
         $user->save();
         $user->generateToken();
-        Mail::to($request->email)->send(new SuccessRegister());
+        $domain = url('/');
+        if ($domain != env('AWARDSPACE_API_HOST')) {
+            Mail::to($request->email)->send(new SuccessRegister());
+        }
         return response()->json([
             "username" => $user->username,
             "api_token" => $user->api_token,
