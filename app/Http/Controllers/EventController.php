@@ -54,6 +54,7 @@ class EventController extends Controller
         $newEvent->save();
         $pageCount = Event::where('tag_id', $request->tag)->count();
         $tag = EventTags::find($request->tag);
+        $tag->pages += 1;
         $tag->updated_at = date(config('constants.standard_datetime_format'));
         $tag->updated_by = $user->id;
         if ($pageCount == 1) {
@@ -84,26 +85,14 @@ class EventController extends Controller
                 'message' => "Not found"
             ], 404);
         }
-        $tag_id = $event->tag_id;
-        $eventPagesRemain = DB::table('events')->where('events.tag_id', $tag_id)->unionAll(DB::table('event_other_versions')->where('event_other_versions.tag_id', $tag_id))->count();
-        if ($eventPagesRemain <= 1) {
-            return response()->json([
-                'message' => "You can't delete last event page."
-            ], 403);
-        } else {
-            $movedEventOtherVersion = EventOtherVersion::where('event_other_versions.tag_id', $tag_id)
-                ->select('tag_id', 'thumbnail', 'year', 'month', 'day', 'content', 'created_by', 'updated_by', 'created_at', 'updated_at')->orderBy('created_at', 'desc')->limit(1);
-            // dd($movedEventOtherVersion->get());
-            DB::table('events')->insertUsing(
-                ['tag_id', 'thumbnail', 'year', 'month', 'day', 'content', 'created_by', 'updated_by', 'created_at', 'updated_at'],
-                $movedEventOtherVersion
-            );
-            $event->delete();
-            $movedEventOtherVersion->delete();
-            return response()->json([
-                'message' => 'Event page deleted.'
-            ], 200);
-        }
+        $eventTag = EventTags::find($event->tag_id);
+        $eventTag->pages -= 1;
+        $eventTag->save();
+        Votes::where('event_id', $eventId)->delete();
+        $event->delete();
+        return response()->json([
+            'message' => 'Event page deleted.'
+        ], 200);
     }
 
     /**

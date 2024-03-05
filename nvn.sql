@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2024 at 07:20 AM
+-- Generation Time: Mar 05, 2024 at 08:33 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -69,6 +69,7 @@ INSERT INTO `events` (`id`, `tag_id`, `votes`, `thumbnail`, `year`, `month`, `da
 CREATE TABLE `event_tags` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
+  `pages` int(10) UNSIGNED NOT NULL,
   `thumbnail` mediumtext NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -80,17 +81,17 @@ CREATE TABLE `event_tags` (
 -- Dumping data for table `event_tags`
 --
 
-INSERT INTO `event_tags` (`id`, `name`, `thumbnail`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
-(1, 'world war 1', 'https://live.staticflickr.com/65535/53317226249_cfd0651d0f_z.jpg', '2023-10-13 00:00:00', '2023-10-13 00:00:00', 1, 1),
-(2, 'world war 2', 'https://live.staticflickr.com/65535/53317112738_0b276efde9_z.jpg', '2023-10-13 00:00:00', '2024-02-28 13:14:24', 1, 1),
-(4, 'gulf war', 'https://live.staticflickr.com/65535/53316005192_ff1413bebf_z.jpg', '2023-10-13 00:00:00', '2023-10-13 00:00:00', 1, 1),
-(5, '2022 russia-ukraine ', 'https://live.staticflickr.com/65535/53317112793_81b4d1c139_z.jpg', '2023-10-13 00:00:00', '2023-10-13 00:00:00', 1, 1),
-(6, 'annexation of crimea', 'https://live.staticflickr.com/65535/53317112838_cdd9354513_z.jpg', '2023-10-13 00:00:00', '2023-10-13 00:00:00', 1, 1),
-(14, 'iraq war', 'https://live.staticflickr.com/65535/53316005472_296b7a63ce_z.jpg', '2023-10-13 00:00:00', '2023-10-13 00:00:00', 1, 1),
-(16, 'war in afghanistan', 'https://live.staticflickr.com/65535/53316871876_d5d7ae1436_z.jpg', '2023-10-13 00:00:00', '2023-10-13 00:00:00', 1, 1),
-(17, 'kosovo war', 'https://live.staticflickr.com/65535/53316005457_5c1c0155cc_z.jpg', '2023-10-13 00:00:00', '2023-10-13 00:00:00', 1, 1),
-(19, 'bosnian war', 'https://live.staticflickr.com/65535/53317226089_69925b4491_c.jpg', '2023-10-13 00:00:00', '2023-10-13 00:00:00', 1, 1),
-(20, 'croatian war of independence', 'https://live.staticflickr.com/65535/53317343490_b5aeebf30f_c.jpg', '2023-10-13 00:00:00', '2023-10-13 00:00:00', 1, 1);
+INSERT INTO `event_tags` (`id`, `name`, `pages`, `thumbnail`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
+(1, 'world war 1', 1, 'https://live.staticflickr.com/65535/53317226249_cfd0651d0f_z.jpg', '2023-10-13 00:00:00', '2023-10-13 00:00:00', 1, 1),
+(2, 'world war 2', 3, 'https://live.staticflickr.com/65535/53317112738_0b276efde9_z.jpg', '2023-10-13 00:00:00', '2024-02-28 13:14:24', 1, 1),
+(4, 'gulf war', 1, 'https://live.staticflickr.com/65535/53316005192_ff1413bebf_z.jpg', '2023-10-13 00:00:00', '2023-10-13 00:00:00', 1, 1),
+(5, '2022 russia-ukraine ', 1, 'https://live.staticflickr.com/65535/53317112793_81b4d1c139_z.jpg', '2023-10-13 00:00:00', '2023-10-13 00:00:00', 1, 1),
+(6, 'annexation of crimea', 1, 'https://live.staticflickr.com/65535/53317112838_cdd9354513_z.jpg', '2023-10-13 00:00:00', '2023-10-13 00:00:00', 1, 1),
+(14, 'iraq war', 1, 'https://live.staticflickr.com/65535/53316005472_296b7a63ce_z.jpg', '2023-10-13 00:00:00', '2023-10-13 00:00:00', 1, 1),
+(16, 'war in afghanistan', 1, 'https://live.staticflickr.com/65535/53316871876_d5d7ae1436_z.jpg', '2023-10-13 00:00:00', '2023-10-13 00:00:00', 1, 1),
+(17, 'kosovo war', 1, 'https://live.staticflickr.com/65535/53316005457_5c1c0155cc_z.jpg', '2023-10-13 00:00:00', '2023-10-13 00:00:00', 1, 1),
+(19, 'bosnian war', 1, 'https://live.staticflickr.com/65535/53317226089_69925b4491_c.jpg', '2023-10-13 00:00:00', '2023-10-13 00:00:00', 1, 1),
+(20, 'croatian war of independence', 1, 'https://live.staticflickr.com/65535/53317343490_b5aeebf30f_c.jpg', '2023-10-13 00:00:00', '2023-10-13 00:00:00', 1, 1);
 
 -- --------------------------------------------------------
 

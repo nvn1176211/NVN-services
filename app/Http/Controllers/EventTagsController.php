@@ -16,7 +16,7 @@ class EventTagsController extends Controller
         $name = $request->search;
         $eventTags = EventTags::where([
             ['name', 'like', '%'.$name.'%'],
-            ['thumbnail', '<>', ''],
+            ['pages', '>', 0],
         ]
         )->select('id', 'name', 'thumbnail')->orderBy('updated_at', 'desc')->get();
         return response()->json([
@@ -73,6 +73,7 @@ class EventTagsController extends Controller
     {
         EventTags::create([
             'name' => $request->name,
+            'pages' => 0,
             'created_by'=> Auth::user()->id,
             'updated_by'=> Auth::user()->id,
         ]);
