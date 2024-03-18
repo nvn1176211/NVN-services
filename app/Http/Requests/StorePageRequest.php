@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class VoteToggleRequest extends FormRequest
+class StorePageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,9 @@ class VoteToggleRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => ['required'],
+            'name' => ['required'],
+            'content' => ['required'],
+            'thumbnail' => ['image'],
         ];
     }
 }
