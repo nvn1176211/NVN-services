@@ -4,10 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\FileUploads;
 
-class CDN
+class CORS
 {
     /**
      * Handle an incoming request.

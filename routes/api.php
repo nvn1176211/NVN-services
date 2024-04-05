@@ -38,6 +38,6 @@ Route::middleware('auth:admin_api')->group(function(){
 Route::get('pages', 'PagesController@index');
 Route::get('articles/{id}', 'ArticlesController@show');
 Route::get('discussions/{id}', 'DiscussionsController@show');
-Route::get('cors_img', 'FilesController@corsImg')->name('api.cors_img');
-Route::post('ckfinder_image_upload', 'FilesController@ckImgUpload')->middleware('ckfinderUpload');
-Route::get('cdn/{file}', 'FilesController@cdn')->middleware('cdn');
+Route::get('cors_img', 'FilesController@corsImg')->name('api.cors_img')->middleware('cors');
+Route::post('ckeditor_image_upload', 'FilesController@ckImgUpload')->middleware('ckfinderUpload');
+Route::get('cdn/{file}', 'FilesController@cdn')->middleware('cors');

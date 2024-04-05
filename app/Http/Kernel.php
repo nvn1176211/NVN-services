@@ -54,7 +54,7 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $routeMiddleware = [
-        'cdn' => \App\Http\Middleware\CDN::class,
+        'cors' => \App\Http\Middleware\CORS::class,
         'ckfinderUpload' => \App\Http\Middleware\CKFinderUpload::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
