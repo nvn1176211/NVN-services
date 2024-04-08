@@ -13,7 +13,7 @@ class OpinionsController extends Controller
 {
     /**
      * @param VoteToggleRequest $request
-     * @return Json
+     * @return Object
      */
     public function toggleVote(VoteToggleRequest $request)
     {
@@ -52,7 +52,7 @@ class OpinionsController extends Controller
 
     /**
      * @param StoreOpinionRequest $request
-     * @return Json
+     * @return Object
      */
     public function store(StoreOpinionRequest $request)
     {

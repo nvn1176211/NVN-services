@@ -75,7 +75,7 @@ class EventController extends Controller
     /**
      * api
      * @param  Interger  $eventId
-     * @return Json
+     * @return Object
      */
     public function delete($eventId)
     {
@@ -97,7 +97,7 @@ class EventController extends Controller
 
     /**
      * api
-     * @return Json
+     * @return Object
      */
     public function toggleVote(VoteToggleRequest $request)
     {

@@ -14,7 +14,7 @@ class DiscussionsController extends Controller
 {
     /**
      * @param Interger $id
-     * @return Json
+     * @return Object
      */
     public function show($id)
     {
@@ -57,7 +57,7 @@ class DiscussionsController extends Controller
 
     /**
      * @param VoteToggleRequest $request
-     * @return Json
+     * @return Object
      */
     public function toggleVote(VoteToggleRequest $request)
     {
@@ -96,7 +96,7 @@ class DiscussionsController extends Controller
     
     /**
      * @param StorePageRequest $request
-     * @return Json
+     * @return Object
      */
     public function store(StorePageRequest $request)
     {

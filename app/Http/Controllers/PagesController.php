@@ -13,7 +13,7 @@ class PagesController extends Controller
 {
     /**
      * @param Request $request
-     * @return Json
+     * @return Object
      */
     public function index(Request $request)
     {

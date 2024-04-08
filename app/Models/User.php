@@ -45,6 +45,7 @@ class User extends Authenticatable
 
     public function generateToken(){
         $this->api_token = Str::random(60);
+        $this->updated_at = date(config('constants.standard_datetime_format'));
         $this->save();
         return $this->api_token;
     }

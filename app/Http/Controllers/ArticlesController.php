@@ -9,13 +9,13 @@ use App\Http\Requests\VoteToggleRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorePageRequest;
+use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {
     /**
      * @param Interger $id
-     *
-     * @return Json
+     * @return Object
      */
     public function show($id)
     {
@@ -42,7 +42,7 @@ class ArticlesController extends Controller
 
     /**
      * @param VoteToggleRequest $request
-     * @return Json
+     * @return Object
      */
     public function toggleVote(VoteToggleRequest $request)
     {
@@ -81,7 +81,7 @@ class ArticlesController extends Controller
 
     /**
      * @param StorePageRequest $request
-     * @return Json
+     * @return Object
      */
     public function store(StorePageRequest $request)
     {
@@ -103,5 +103,20 @@ class ArticlesController extends Controller
         return response()->json([
             'message' => 'New article added.'
         ], 201);
+    }
+
+    /**
+     * @param Interger $id
+     * @return Object
+     */
+    public function update(Request $request, $id)
+    {
+        $article = Articles::find($id);
+        dd($request->user()->can('update', $article));
+        if($this->authorize('update', $article)) return 4;
+        // $this->authorize('update', $article);
+        return response()->json([
+            'message' => 'New article updated.'
+        ], 200);
     }
 }

@@ -22,12 +22,14 @@ Route::post('login', 'LoginController@login')->name('api.login');
 
 Route::middleware('auth:api')->group(function(){
     Route::post('articles', 'ArticlesController@store');
+    Route::post('articles/{id}', 'ArticlesController@update');
     Route::post('discussions', 'DiscussionsController@store');
     Route::post('opinions', 'OpinionsController@store');
     Route::post('discussion_votes/toggle', 'DiscussionsController@toggleVote');
     Route::post('opinion_votes/toggle', 'OpinionsController@toggleVote');
     Route::post('article_votes/toggle', 'ArticlesController@toggleVote');
     Route::get('user', 'UserController@index')->name('api.user');
+    Route::get('register_history', 'UserController@registerHistory');
     Route::post('logout', 'LoginController@logout')->name('api.logout');
 });
 
