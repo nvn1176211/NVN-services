@@ -45,6 +45,7 @@ class DiscussionsController extends Controller
         }, function($query){
             $query->selectRaw('"no" AS voted');
         })
+        ->selectRaw('CASE WHEN opinions.created_by = ? THEN "yes" ELSE "no" END AS is_your_own', [$user_id])
         ->addSelect('opinions.id', 'opinions.content', 'opinions.votes', 'user.username as author_name')
         ->selectRaw('DATE_FORMAT(opinions.created_at, "%Y/%m/%d %H:%i") as f1_created_at')
         ->orderBy('opinions.votes', 'desc')->orderBy('f1_created_at', 'asc')

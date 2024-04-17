@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\VoteToggleRequest;
 use App\Http\Requests\StoreOpinionRequest;
+use App\Http\Requests\UpdateOpinionRequest;
 use App\Models\OpinionVotes;
 use App\Models\Opinions;
 use Illuminate\Support\Facades\Auth;
@@ -71,11 +72,42 @@ class OpinionsController extends Controller
         $opinionVote->save();
         return response()->json([
             "voted" => "yes",
+            "is_your_own" => "yes",
             "id" => $opinion->id,
             "content" => $opinion->content,
             "votes" => 1,
             "author_name" => $user->username,
             "f1_created_at" => $opinion->created_at->format('Y/m/d H:i')
         ], 201);
+    }
+
+    /**
+     * @param UpdateOpinionRequest $request
+     * @param Interger $id
+     * @return Object
+     */
+    public function update(UpdateOpinionRequest $request, $id)
+    {
+        $user = Auth::user();
+        $opinion = Opinions::find($id);
+        try {
+            $this->authorize('update', $opinion);
+        } catch (\Exception $e) {
+            return response([
+                'message' => 'Forbidden.'
+            ], 403);
+        }
+        $opinion->content = $request->content;
+        $opinion->updated_at = date(config('constants.standard_datetime_format'));
+        $opinion->save();
+        return response()->json([
+            "voted" => $opinion->opinion_votes->where('created_by', $user->id)->count() ? "yes" : 'no',
+            "is_your_own" => "yes",
+            "id" => $opinion->id,
+            "content" => $opinion->content,
+            "votes" => $opinion->votes,
+            "author_name" => $user->username,
+            "f1_created_at" => $opinion->created_at->format('Y/m/d H:i')
+        ], 200);
     }
 }

@@ -40,7 +40,7 @@ class UserController extends Controller
      * @return Array
      */
     public static function registerHistory(){
-        if(Gate::denies('request-register-history')) return response('Unauthorized', 401);
+        if(Gate::denies('request-register-history')) return response(['message' => 'Unauthorized.'], 401);
         $registerHistory = DB::table('user')->select('username', 'created_at')->orderBy('created_at', 'desc')->get();
         return $registerHistory;
     }

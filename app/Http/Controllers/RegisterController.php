@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SuccessRegister;
 use App\Models\User;
+use App\Models\RolesUsers;
+use App\Models\Roles;
 use App\Http\Requests\StoreUserRequest;
 
 class RegisterController extends Controller 
@@ -37,6 +39,13 @@ class RegisterController extends Controller
         $user->fill($data);
         $user->save();
         $user->generateToken();
+        $roleUser = new RolesUsers();
+        $roleUser->user_id = $user->id;
+        $roleUser->role_id = Roles::$userRoleId;
+        $roleUser->created_by = $user->id;
+        $roleUser->updated_by = $user->id;
+        $roleUser->save();
+
         $domain = url('/');
         if ($domain != env('AWARDSPACE_API_HOST')) {
             Mail::to($request->email)->send(new SuccessRegister());

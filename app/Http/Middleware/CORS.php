@@ -20,7 +20,9 @@ class CORS
         if($request->header('Referer') == env('DEPLOY_FE_HOST')){
             return $next($request);
         }else{
-            return response('Forbidden', 403);
+            return response([
+                'message' => 'Forbidden.'
+            ], 403);
         }
     }
 }

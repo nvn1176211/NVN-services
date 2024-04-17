@@ -20,7 +20,7 @@ class CKFinderUpload
     {
         $api_token = $request->api_token;
         $user =  User::whereNotNull('api_token')->where('api_token', $api_token)->first();
-        if (!$user) return response('Unauthenticated', 403);
+        if (!$user) return response(['message' => 'Unauthorized.'], 401);
         $nowUT = time();
         $lastMinuteUT = $nowUT - 60;
         $now = date(config('constants.standard_datetime_format'), $nowUT);
@@ -31,7 +31,9 @@ class CKFinderUpload
             ['created_at', '<=', $now],
         ])->count();
         if ($recentUploaded > 5) {
-            return response('Forbidden', 403);
+            return response([
+                'message' => 'Forbidden.'
+            ], 403);
         } else {
             return $next($request);
         }
