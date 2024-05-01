@@ -6,9 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Articles;
 use App\Models\ArticleVotes;
 use App\Http\Requests\VoteToggleRequest;
+use App\Http\Requests\UpdateArticleRequest;
+use App\Http\Requests\StorePageRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\StorePageRequest;
 use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
@@ -35,6 +36,7 @@ class ArticlesController extends Controller
                 $query->selectRaw('"no" AS voted');
             })
             ->addSelect('articles.id', 'articles.name', 'articles.content', 'articles.votes', 'user.username as author_name')
+            ->selectRaw('CASE WHEN articles.created_by = ? THEN "yes" ELSE "no" END AS is_your_own', [$user_id])
             ->selectRaw('DATE_FORMAT(articles.created_at, "%Y/%m/%d %H:%i") as f1_created_at')
             ->first();
         return response()->json($article, 200);
@@ -106,17 +108,32 @@ class ArticlesController extends Controller
     }
 
     /**
+     * @param UpdateArticleRequest $request
      * @param Interger $id
      * @return Object
      */
-    public function update(Request $request, $id)
+    public function update(UpdateArticleRequest $request, $id)
     {
+        $user = Auth::user();
         $article = Articles::find($id);
-        dd($request->user()->can('update', $article));
-        if($this->authorize('update', $article)) return 4;
-        // $this->authorize('update', $article);
+        try {
+            $this->authorize('update', $article);
+        } catch (\Exception $e) {
+            return response([
+                'message' => 'Forbidden.'
+            ], 403);
+        }
+        $article->content = $request->content;
+        $article->updated_at = date(config('constants.standard_datetime_format'));
+        $article->save();
         return response()->json([
-            'message' => 'New article updated.'
+            "voted" => $article->article_votes->where('created_by', $user->id)->count() ? "yes" : 'no',
+            "is_your_own" => "yes",
+            "id" => $article->id,
+            "content" => $article->content,
+            "votes" => $article->votes,
+            "author_name" => $user->username,
+            "f1_created_at" => $article->created_at->format('Y/m/d H:i')
         ], 200);
     }
 }

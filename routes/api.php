@@ -24,6 +24,7 @@ Route::middleware('auth:api')->group(function(){
     Route::post('articles', 'ArticlesController@store');
     Route::post('articles/{id}', 'ArticlesController@update');
     Route::post('discussions', 'DiscussionsController@store');
+    Route::post('discussions/{id}', 'DiscussionsController@update');
     Route::post('opinions', 'OpinionsController@store');
     Route::post('opinions/{id}', 'OpinionsController@update');
     Route::post('discussion_votes/toggle', 'DiscussionsController@toggleVote');
