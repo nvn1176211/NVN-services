@@ -27,10 +27,11 @@ Route::middleware('auth:api')->group(function(){
     Route::post('discussions/{id}', 'DiscussionsController@update');
     Route::post('opinions', 'OpinionsController@store');
     Route::post('opinions/{id}', 'OpinionsController@update');
-    Route::post('discussion_votes/toggle', 'DiscussionsController@toggleVote');
-    Route::post('opinion_votes/toggle', 'OpinionsController@toggleVote');
-    Route::post('article_votes/toggle', 'ArticlesController@toggleVote');
-    Route::get('user', 'UserController@index')->name('api.user');
+    Route::post('votes/discussions/toggle', 'DiscussionsController@toggleVote');
+    Route::post('votes/articles/toggle', 'ArticlesController@toggleVote');
+    Route::post('votes/opinions/toggle', 'OpinionsController@toggleVote');
+    Route::get('users', 'UserController@index')->name('api.user');
+    Route::post('users/password/change', 'UserController@changePassword');
     Route::get('register_history', 'UserController@registerHistory');
     Route::post('logout', 'LoginController@logout')->name('api.logout');
 });

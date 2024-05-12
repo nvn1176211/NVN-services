@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: May 01, 2024 at 03:06 PM
--- Server version: 10.5.20-MariaDB
--- PHP Version: 7.3.33
+-- Host: 127.0.0.1
+-- Generation Time: May 08, 2024 at 04:26 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `id21952164_nvn`
+-- Database: `nvn`
 --
 
 -- --------------------------------------------------------
@@ -37,7 +37,7 @@ CREATE TABLE `articles` (
   `updated_by` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `articles`
@@ -62,7 +62,7 @@ CREATE TABLE `article_votes` (
   `updated_by` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `article_votes`
@@ -90,7 +90,7 @@ CREATE TABLE `discussions` (
   `updated_by` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `discussions`
@@ -114,7 +114,7 @@ CREATE TABLE `discussion_votes` (
   `updated_by` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `discussion_votes`
@@ -144,7 +144,7 @@ CREATE TABLE `events` (
   `created_by` int(11) NOT NULL,
   `updated_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `events`
@@ -179,7 +179,7 @@ CREATE TABLE `event_tags` (
   `updated_at` datetime NOT NULL,
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `event_tags`
@@ -210,7 +210,7 @@ CREATE TABLE `file_uploads` (
   `created_at` datetime NOT NULL,
   `updated_by` int(11) NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `file_uploads`
@@ -263,7 +263,7 @@ CREATE TABLE `opinions` (
   `updated_by` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `opinions`
@@ -289,7 +289,7 @@ CREATE TABLE `opinion_votes` (
   `updated_by` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `opinion_votes`
@@ -317,7 +317,7 @@ CREATE TABLE `roles` (
   `updated_at` datetime NOT NULL,
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `roles`
@@ -341,7 +341,7 @@ CREATE TABLE `roles_users` (
   `updated_at` datetime NOT NULL,
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `roles_users`
@@ -365,23 +365,24 @@ INSERT INTO `roles_users` (`id`, `role_id`, `user_id`, `created_at`, `updated_at
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
+  `email` varchar(500) NOT NULL,
   `password` mediumtext NOT NULL,
   `api_token` char(60) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `api_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', '$2y$10$N.ohMl/ujoSQTjwAbfIvJ.RFb03tkFeFbA8l.LOcHj4bViQ.xAsLq', '54CvS3ICQKNw0cqBHwsoLl0AykhylC8NwfsYs6ZQAcgAJ6DYsKjcYBf7qQJn', '2022-12-23 01:02:06', '2024-04-17 20:06:00'),
-(2, 'user1', '$2y$10$N.ohMl/ujoSQTjwAbfIvJ.RFb03tkFeFbA8l.LOcHj4bViQ.xAsLq', 'vmiRO2A75uEbUCvNnEr1g3CDnEuOBFghRglx92Scp8hrSrXcWN6kUPmO73Iw', '2024-01-17 10:16:23', '2024-04-25 21:12:11'),
-(3, 'user2', '$2y$10$N.ohMl/ujoSQTjwAbfIvJ.RFb03tkFeFbA8l.LOcHj4bViQ.xAsLq', '2', '2022-12-24 04:32:10', '2023-10-22 09:15:09'),
-(4, 'user3', '$2y$10$N.ohMl/ujoSQTjwAbfIvJ.RFb03tkFeFbA8l.LOcHj4bViQ.xAsLq', '3', '2024-01-17 10:14:48', '2024-01-17 10:14:48'),
-(16, 'user4', '$2y$10$N.ohMl/ujoSQTjwAbfIvJ.RFb03tkFeFbA8l.LOcHj4bViQ.xAsLq', 'TKKVel0lh1yvxLBAzYxjBRHw0lVm43c5lpLgf7DizG0PCXgCfGScsxSlAuzw', '2024-01-17 09:33:34', '2024-03-08 17:26:03'),
-(18, 'user5', '$2y$10$N.ohMl/ujoSQTjwAbfIvJ.RFb03tkFeFbA8l.LOcHj4bViQ.xAsLq', 'e8CPAhAjf2E1xQrDNkyjtaHi6doRewNXtXLpKgX7wl7BRLcpUydZoCMWjAhl', '2024-01-17 10:15:37', '2024-01-17 10:15:37');
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `api_token`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 'nvnit1176211@gmail.com', '$2y$10$N.ohMl/ujoSQTjwAbfIvJ.RFb03tkFeFbA8l.LOcHj4bViQ.xAsLq', '54CvS3ICQKNw0cqBHwsoLl0AykhylC8NwfsYs6ZQAcgAJ6DYsKjcYBf7qQJn', '2022-12-23 01:02:06', '2024-04-17 20:06:00'),
+(2, 'user1', '2nvn1176211@gmail.com', '$2y$10$N.ohMl/ujoSQTjwAbfIvJ.RFb03tkFeFbA8l.LOcHj4bViQ.xAsLq', 'vmiRO2A75uEbUCvNnEr1g3CDnEuOBFghRglx92Scp8hrSrXcWN6kUPmO73Iw', '2024-01-17 10:16:23', '2024-04-25 21:12:11'),
+(3, 'user2', 'nvnit11762112@gmail.com', '$2y$10$N.ohMl/ujoSQTjwAbfIvJ.RFb03tkFeFbA8l.LOcHj4bViQ.xAsLq', '2', '2022-12-24 04:32:10', '2023-10-22 09:15:09'),
+(4, 'user3', 'nvnit11762113@gmail.com', '$2y$10$N.ohMl/ujoSQTjwAbfIvJ.RFb03tkFeFbA8l.LOcHj4bViQ.xAsLq', '3', '2024-01-17 10:14:48', '2024-01-17 10:14:48'),
+(16, 'user4', 'nvnit11762114@gmail.com', '$2y$10$N.ohMl/ujoSQTjwAbfIvJ.RFb03tkFeFbA8l.LOcHj4bViQ.xAsLq', 'TKKVel0lh1yvxLBAzYxjBRHw0lVm43c5lpLgf7DizG0PCXgCfGScsxSlAuzw', '2024-01-17 09:33:34', '2024-03-08 17:26:03'),
+(18, 'user5', 'nvnit11762115@gmail.com', '$2y$10$N.ohMl/ujoSQTjwAbfIvJ.RFb03tkFeFbA8l.LOcHj4bViQ.xAsLq', 'e8CPAhAjf2E1xQrDNkyjtaHi6doRewNXtXLpKgX7wl7BRLcpUydZoCMWjAhl', '2024-01-17 10:15:37', '2024-01-17 10:15:37');
 
 -- --------------------------------------------------------
 
@@ -397,7 +398,7 @@ CREATE TABLE `votes` (
   `updated_at` datetime NOT NULL,
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `votes`
@@ -524,6 +525,7 @@ ALTER TABLE `roles_users`
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `email` (`email`),
   ADD UNIQUE KEY `api_token` (`api_token`);
 
 --

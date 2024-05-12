@@ -74,8 +74,8 @@ class FilesController extends Controller
      */
     public function cdn($fileName)
     {
-        //$publicFolderName = 'public';
-        $publicFolderName = 'public_html';
+        $publicFolderName = 'public';
+        if(url('/') == env('000WEBHOST_API_HOST')) $publicFolderName = 'public_html';
         $filePath = base_path($publicFolderName . '/' . $fileName);
         return response()->file($filePath, [
             'Content-Type' => 'application/javascript; charset=utf-8'
