@@ -10,7 +10,6 @@ use App\Models\Discussions;
 use App\Policies\DiscussionsPolicy;
 use App\Policies\OpinionsPolicy;
 use App\Policies\ArticlesPolicy;
-use App\Policies\UserPolicy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DB;
@@ -28,7 +27,6 @@ class AuthServiceProvider extends ServiceProvider
         Articles::class => ArticlesPolicy::class,
         Discussions::class => DiscussionsPolicy::class,
         Opinions::class => OpinionsPolicy::class,
-        User::class => UserPolicy::class,
     ];
 
     /**

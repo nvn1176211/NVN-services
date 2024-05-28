@@ -5,7 +5,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdatePasswordUserRequest;
 use DB;
+use Illuminate\Support\Str;
 
 class UserController extends Controller 
 {
@@ -49,20 +51,17 @@ class UserController extends Controller
     /**
      * @return Object
      */
-    public function changePassword(Request $request){
+    public function changePassword(UpdatePasswordUserRequest $request){
         $user = Auth::user();
-        $this->authorize('update', [$user, $request->password]);
-        // $this->authorize('update', [$user, 22]);
-        // $this->authorize('update', $request->password);
-        // try {
-        //     // dd(1, $request->password);
-        //     // $this->authorize('update');
-        //     $this->authorize('update', $request->password);
-        // } catch (\Exception $e) {
-        //     return response([
-        //         'message' => 'Forbidden.'
-        //     ], 403);
-        // }
+        $user->password = bcrypt($request->new_password);
+        $user->api_token = Str::random(60);
+        $user->updated_at = date(config('constants.standard_datetime_format'));
+        $user->save();
+        return response()->json([
+            "username" => $user->username,
+            "api_token" => $user->api_token,
+            "is_admin" => UserController::isAdmin($user),
+        ], 200);
     }
     
 }

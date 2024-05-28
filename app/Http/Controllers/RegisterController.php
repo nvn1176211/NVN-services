@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\RolesUsers;
 use App\Models\Roles;
 use App\Http\Requests\StoreUserRequest;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller 
 {
@@ -37,8 +38,8 @@ class RegisterController extends Controller
         ];
         $user = new User();
         $user->fill($data);
+        $user->api_token = Str::random(60);
         $user->save();
-        $user->generateToken();
         $roleUser = new RolesUsers();
         $roleUser->user_id = $user->id;
         $roleUser->role_id = Roles::$userRoleId;
