@@ -18,6 +18,8 @@ class PagesController extends Controller
     {
         $name = $request->search;
         $api_token = request('api_token');
+        $from = request('from');
+        $size = request('size');
         $user_id = null;
         if ($api_token) {
             $user = User::where('api_token', $api_token)->select('id')->first();
@@ -47,7 +49,10 @@ class PagesController extends Controller
         ->addSelect('articles.id', 'articles.name', 'articles.thumbnail', 'user.username as author_name', 'articles.votes')
         ->selectRaw('DATE_FORMAT(articles.created_at, "%Y/%m/%d %H:%i") as f1_created_at')
         ->selectRaw('? AS type', ['articles']);
-        $pages = $articles->unionAll($discussions)->orderBy('f1_created_at', 'desc')->get();
+        $pages = $articles->unionAll($discussions)->orderBy('f1_created_at', 'desc');
+        if($size) $pages->limit($size);
+        if($from) $pages->offset($from);
+        $pages = $pages->get();
         return response()->json([
             'pages' => $pages
         ], 200);

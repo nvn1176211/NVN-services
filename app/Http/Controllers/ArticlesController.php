@@ -103,7 +103,14 @@ class ArticlesController extends Controller
         $articleVote->updated_by = $user->id;
         $articleVote->save();
         return response()->json([
-            'message' => 'New article added.'
+            "author_name" => $user->username,
+            "f1_created_at" => $article->created_at->format('Y/m/d H:i'),
+            "id" => $article->id,
+            "name" => $article->name,
+            "thumbnail" => $article->thumbnail,
+            "type" => 'articles',
+            "voted" => "yes",
+            "votes" => 1,
         ], 201);
     }
 

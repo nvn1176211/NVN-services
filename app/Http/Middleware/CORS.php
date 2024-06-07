@@ -16,8 +16,9 @@ class CORS
      */
     public function handle(Request $request, Closure $next)
     {
-        // if($request->header('Referer') == env('LOCAL_FE_HOST')){
-        if($request->header('Referer') == env('DEPLOY_FE_HOST')){
+        $acceptedReferer = env('LOCAL_FE_HOST');
+        if(url('/') != env('LOCAL_API_HOST')) $acceptedReferer = env('DEPLOY_FE_HOST');
+        if($request->header('Referer') == $acceptedReferer){
             return $next($request);
         }else{
             return response([

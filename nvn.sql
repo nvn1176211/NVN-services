@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 08, 2024 at 04:26 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- Host: localhost:3306
+-- Generation Time: May 29, 2024 at 05:40 AM
+-- Server version: 10.5.20-MariaDB
+-- PHP Version: 7.3.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `nvn`
+-- Database: `id21952164_nvn`
 --
 
 -- --------------------------------------------------------
@@ -37,7 +37,7 @@ CREATE TABLE `articles` (
   `updated_by` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `articles`
@@ -46,8 +46,16 @@ CREATE TABLE `articles` (
 INSERT INTO `articles` (`id`, `name`, `votes`, `thumbnail`, `content`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
 (1, 'World War II', 1, 'https://live.staticflickr.com/65535/53317112738_0b276efde9_z.jpg', '<p><strong>World War&nbsp;II</strong> or the <strong>Second World War</strong> was a <a href=\"https://en.wikipedia.org/wiki/World_war\">global conflict</a> that lasted from 1939 to 1945. The <a href=\"https://en.wikipedia.org/wiki/World_War_II_by_country\">vast majority of the world\'s countries</a>, including all the <a href=\"https://en.wikipedia.org/wiki/Great_power\">great powers</a>, fought as part of two opposing <a href=\"https://en.wikipedia.org/wiki/Military_alliance\">military alliances</a>: the <a href=\"https://en.wikipedia.org/wiki/Allies_of_World_War_II\">Allies</a> and the <a href=\"https://en.wikipedia.org/wiki/Axis_powers\">Axis</a>. Many participating countries invested all available economic, industrial, and scientific capabilities into this <a href=\"https://en.wikipedia.org/wiki/Total_war\">total war</a>, blurring the distinction between civilian and military resources. <a href=\"https://en.wikipedia.org/wiki/Air_warfare_of_World_War_II\">Aircraft played a major role</a>, enabling the <a href=\"https://en.wikipedia.org/wiki/Strategic_bombing\">strategic bombing</a> of population centres and delivery of the <a href=\"https://en.wikipedia.org/wiki/Atomic_bombings_of_Hiroshima_and_Nagasaki\">only two nuclear weapons</a> ever used in war. It was by far the <a href=\"https://en.wikipedia.org/wiki/List_of_wars_by_death_toll\">deadliest conflict</a> in history, resulting in <a href=\"https://en.wikipedia.org/wiki/World_War_II_casualties\">70–85 million fatalities</a>. Millions died due to <a href=\"https://en.wikipedia.org/wiki/Genocides\">genocides</a>, including <a href=\"https://en.wikipedia.org/wiki/The_Holocaust\">the Holocaust</a>, as well as starvation, massacres, and disease. In the wake of Axis defeat, <a href=\"https://en.wikipedia.org/wiki/Allied-occupied_Germany\">Germany</a>, <a href=\"https://en.wikipedia.org/wiki/Allied-occupied_Austria\">Austria</a>, and <a href=\"https://en.wikipedia.org/wiki/Occupation_of_Japan\">Japan were occupied</a>, and <a href=\"https://en.wikipedia.org/wiki/War_crimes_in_World_War_II\">war crime</a> tribunals were conducted <a href=\"https://en.wikipedia.org/wiki/Nuremberg_trials\">against German</a> and <a href=\"https://en.wikipedia.org/wiki/International_Military_Tribunal_for_the_Far_East\">Japanese leaders</a>.</p><p>The <a href=\"https://en.wikipedia.org/wiki/Causes_of_World_War_II\">causes of the war</a> are debated; contributing factors included the rise of <a href=\"https://en.wikipedia.org/wiki/Fascism_in_Europe\">fascism in Europe</a>, the <a href=\"https://en.wikipedia.org/wiki/Spanish_Civil_War\">Spanish Civil War</a>, the <a href=\"https://en.wikipedia.org/wiki/Second_Sino-Japanese_War\">Second Sino-Japanese War</a>, <a href=\"https://en.wikipedia.org/wiki/Soviet%E2%80%93Japanese_border_conflicts\">Soviet–Japanese border conflicts</a>, and tensions in the <a href=\"https://en.wikipedia.org/wiki/Aftermath_of_World_War_I\">aftermath of World War I</a>. World War&nbsp;II is generally considered to have begun on 1 September 1939, when <a href=\"https://en.wikipedia.org/wiki/Nazi_Germany\">Nazi Germany</a>, under <a href=\"https://en.wikipedia.org/wiki/Adolf_Hitler\">Adolf Hitler</a>, <a href=\"https://en.wikipedia.org/wiki/Invasion_of_Poland\">invaded Poland</a>. The <a href=\"https://en.wikipedia.org/wiki/United_Kingdom_declaration_of_war_on_Germany_(1939)\">United Kingdom</a> and <a href=\"https://en.wikipedia.org/wiki/French_declaration_of_war_on_Germany_(1939)\">France</a> <a href=\"https://en.wikipedia.org/wiki/Declaration_of_war\">declared war</a> on Germany on 3 September. Under the <a href=\"https://en.wikipedia.org/wiki/Molotov%E2%80%93Ribbentrop_Pact\">Molotov–Ribbentrop Pact</a> of August 1939, Germany and the <a href=\"https://en.wikipedia.org/wiki/Soviet_Union\">Soviet Union</a> had partitioned <a href=\"https://en.wikipedia.org/wiki/Second_Polish_Republic\">Poland</a> and marked out their \"<a href=\"https://en.wikipedia.org/wiki/Sphere_of_influence\">spheres of influence</a>\" across <a href=\"https://en.wikipedia.org/wiki/Winter_War\">Finland</a>, <a href=\"https://en.wikipedia.org/wiki/Occupation_of_the_Baltic_states\">Estonia, Latvia, Lithuania</a>, and <a href=\"https://en.wikipedia.org/wiki/Soviet_occupation_of_Bessarabia_and_Northern_Bukovina\">Romania</a>. From late 1939 to early 1941, in a series of <a href=\"https://en.wikipedia.org/wiki/Military_campaign\">campaigns</a> and <a href=\"https://en.wikipedia.org/wiki/Tripartite_Pact\">treaties</a>, Germany conquered or controlled much of <a href=\"https://en.wikipedia.org/wiki/Continental_Europe\">continental Europe</a> in a military alliance called the Axis with <a href=\"https://en.wikipedia.org/wiki/Fascist_Italy_(1922%E2%80%931943)\">Italy</a>, <a href=\"https://en.wikipedia.org/wiki/Empire_of_Japan\">Japan</a>, and other countries. Following the onset of campaigns in <a href=\"https://en.wikipedia.org/wiki/Western_Desert_campaign\">North</a> and <a href=\"https://en.wikipedia.org/wiki/East_African_campaign_(World_War_II)\">East Africa</a>, and the <a href=\"https://en.wikipedia.org/wiki/Battle_of_France\">fall of France</a> in mid-1940, the war continued primarily between the European Axis powers and the <a href=\"https://en.wikipedia.org/wiki/British_Empire\">British Empire</a>, with the war in the <a href=\"https://en.wikipedia.org/wiki/Balkans_campaign_(World_War_II)\">Balkans</a>, the aerial <a href=\"https://en.wikipedia.org/wiki/Battle_of_Britain\">Battle of Britain</a>, <a href=\"https://en.wikipedia.org/wiki/The_Blitz\">the Blitz</a> of the UK, and the <a href=\"https://en.wikipedia.org/wiki/Battle_of_the_Atlantic\">Battle of the Atlantic</a>. In June 1941, Germany led the European Axis powers in <a href=\"https://en.wikipedia.org/wiki/Operation_Barbarossa\">an invasion of the Soviet Union</a>, opening the <a href=\"https://en.wikipedia.org/wiki/Eastern_Front_(World_War_II)\">Eastern Front</a>, the largest land <a href=\"https://en.wikipedia.org/wiki/Theatre_of_war\">theatre of war</a> in history.</p><p>Japan aimed to <a href=\"https://en.wikipedia.org/wiki/Greater_East_Asia_Co-Prosperity_Sphere\">dominate East Asia and the Asia-Pacific</a>, and by 1937 was at war with the <a href=\"https://en.wikipedia.org/wiki/Republic_of_China_(1912%E2%80%931949)\">Republic of China</a>. In December 1941, Japan attacked American and British territories with near-simultaneous <a href=\"https://en.wikipedia.org/wiki/Pacific_War#Japanese_offensives,_1941%E2%80%9342\">offensives against Southeast Asia and the Central Pacific</a>, including an <a href=\"https://en.wikipedia.org/wiki/Attack_on_Pearl_Harbor\">attack on Pearl Harbor</a> which resulted in the United States and the United Kingdom declaring war against Japan. The <a href=\"https://en.wikipedia.org/wiki/German_declaration_of_war_against_the_United_States\">European Axis powers declared war on the US</a> in solidarity. <a href=\"https://en.wikipedia.org/wiki/Pacific_War\">Japan soon conquered much of the western Pacific</a>, but its advances were halted in 1942 after losing the critical <a href=\"https://en.wikipedia.org/wiki/Battle_of_Midway\">Battle of Midway</a>; Germany and Italy were <a href=\"https://en.wikipedia.org/wiki/Tunisian_campaign\">defeated in North Africa</a> and at <a href=\"https://en.wikipedia.org/wiki/Battle_of_Stalingrad\">Stalingrad</a> in the Soviet Union. Key setbacks in 1943—including German defeats on the Eastern Front, the <a href=\"https://en.wikipedia.org/wiki/Allied_invasion_of_Sicily\">Allied invasions of Sicily</a> and the <a href=\"https://en.wikipedia.org/wiki/Allied_invasion_of_Italy\">Italian mainland</a>, and Allied offensives in the Pacific—cost the Axis powers their initiative and forced them into strategic retreat on all fronts. In 1944, the Western Allies <a href=\"https://en.wikipedia.org/wiki/Normandy_landings\">invaded German-occupied France</a>, while the Soviet Union <a href=\"https://en.wikipedia.org/wiki/Stalin%27s_ten_blows\">regained its territorial losses</a> and pushed Germany and its allies back. During 1944–1945, Japan suffered reversals in mainland Asia, while the Allies crippled the <a href=\"https://en.wikipedia.org/wiki/Imperial_Japanese_Navy\">Japanese Navy</a> and captured key western Pacific islands. The war in Europe concluded with the liberation of <a href=\"https://en.wikipedia.org/wiki/German-occupied_Europe\">German-occupied territories</a>; the <a href=\"https://en.wikipedia.org/wiki/Western_Allied_invasion_of_Germany\">invasion of Germany by the Western Allies</a> and the Soviet Union, culminating in the <a href=\"https://en.wikipedia.org/wiki/Battle_of_Berlin\">Fall of Berlin</a> to Soviet troops; <a href=\"https://en.wikipedia.org/wiki/Death_of_Adolf_Hitler\">Hitler\'s suicide</a>; and the German <a href=\"https://en.wikipedia.org/wiki/German_Instrument_of_Surrender\">unconditional surrender</a> on <a href=\"https://en.wikipedia.org/wiki/Victory_in_Europe_Day\">8 May 1945</a>. Following the refusal of Japan to surrender on the terms of the <a href=\"https://en.wikipedia.org/wiki/Potsdam_Declaration\">Potsdam Declaration</a>, the US <a href=\"https://en.wikipedia.org/wiki/Atomic_bombings_of_Hiroshima_and_Nagasaki\">dropped the first atomic bombs</a> on <a href=\"https://en.wikipedia.org/wiki/Hiroshima\">Hiroshima</a> on 6&nbsp;August and <a href=\"https://en.wikipedia.org/wiki/Nagasaki\">Nagasaki</a> on 9&nbsp;August. Faced with imminent <a href=\"https://en.wikipedia.org/wiki/Operation_Downfall\">invasion of the Japanese archipelago</a>, the possibility of more atomic bombings, and the Soviet Union\'s <a href=\"https://en.wikipedia.org/wiki/Soviet%E2%80%93Japanese_War\">declared entry</a> into the war against Japan on the eve of <a href=\"https://en.wikipedia.org/wiki/Soviet_invasion_of_Manchuria\">invading Manchuria</a>, Japan announced on 10 August its intention to surrender, signing <a href=\"https://en.wikipedia.org/wiki/Japanese_Instrument_of_Surrender\">a surrender document</a> on <a href=\"https://en.wikipedia.org/wiki/Victory_over_Japan_Day\">2 September 1945</a>.</p><p>World War&nbsp;II changed the political alignment and social structure of the world, and it set the foundation for the international order for the rest of the 20th century and into the 21st century. The <a href=\"https://en.wikipedia.org/wiki/United_Nations\">United Nations</a> was established to foster international cooperation and prevent conflicts, with the victorious great powers—China, France, the Soviet Union, the UK, and the US—becoming the <a href=\"https://en.wikipedia.org/wiki/Permanent_members_of_the_United_Nations_Security_Council\">permanent members</a> of its <a href=\"https://en.wikipedia.org/wiki/United_Nations_Security_Council\">Security Council</a>. The Soviet Union and the United States emerged as rival <a href=\"https://en.wikipedia.org/wiki/Superpower\">superpowers</a>, setting the stage for the <a href=\"https://en.wikipedia.org/wiki/Cold_War\">Cold War</a>. In the wake of European devastation, the influence of its great powers waned, triggering the <a href=\"https://en.wikipedia.org/wiki/Decolonisation_of_Africa\">decolonisation of Africa</a> and <a href=\"https://en.wikipedia.org/wiki/Decolonisation_of_Asia\">Asia</a>. Most countries whose industries had been damaged moved towards <a href=\"https://en.wikipedia.org/wiki/Post%E2%80%93World_War_II_economic_expansion\">economic recovery and expansion</a>.</p>', 1, 1, '2024-03-06 09:39:16', '2024-03-06 09:39:16'),
 (2, 'World War I', 2, 'https://live.staticflickr.com/65535/53317226249_cfd0651d0f_z.jpg', '<p><strong>World War I</strong> or the <strong>First World War</strong> (28 July 1914 – 11 November 1918) was a <a href=\"https://en.wikipedia.org/wiki/World_war\">global conflict</a> fought between two coalitions: the <a href=\"https://en.wikipedia.org/wiki/Allies_of_World_War_I\">Allies</a> and the <a href=\"https://en.wikipedia.org/wiki/Central_Powers\">Central Powers</a>. Battles took place throughout <a href=\"https://en.wikipedia.org/wiki/European_theatre_of_World_War_I\">Europe</a>, the <a href=\"https://en.wikipedia.org/wiki/Middle_Eastern_theatre_of_World_War_I\">Middle East</a>, <a href=\"https://en.wikipedia.org/wiki/African_theatre_of_World_War_I\">Africa</a>, the <a href=\"https://en.wikipedia.org/wiki/Asian_and_Pacific_theatre_of_World_War_I\">Pacific</a>, and parts of <a href=\"https://en.wikipedia.org/wiki/Asian_and_Pacific_theatre_of_World_War_I\">Asia</a>. One of the <a href=\"https://en.wikipedia.org/wiki/List_of_anthropogenic_disasters_by_death_toll\">deadliest wars in history</a>, it resulted in an estimated nine million soldiers dead and 23&nbsp;million wounded, and over eight&nbsp;million civilian deaths from numerous causes including <a href=\"https://en.wikipedia.org/wiki/Genocides_in_history_(World_War_I_through_World_War_II)\">genocide</a>. The war was a major factor in the 1918 <a href=\"https://en.wikipedia.org/wiki/Spanish_flu\">Spanish flu</a> pandemic.</p><p>Increasing diplomatic tensions between the European great powers reached a <a href=\"https://en.wikipedia.org/wiki/July_Crisis\">breaking point</a> on 28 June 1914, when a <a href=\"https://en.wikipedia.org/wiki/Serbs_of_Bosnia_and_Herzegovina\">Bosnian Serb</a> named <a href=\"https://en.wikipedia.org/wiki/Gavrilo_Princip\">Gavrilo Princip</a> <a href=\"https://en.wikipedia.org/wiki/Assassination_of_Archduke_Franz_Ferdinand\">assassinated Archduke Franz Ferdinand</a>, heir to the <a href=\"https://en.wikipedia.org/wiki/Austria-Hungary\">Austro-Hungarian</a> throne. Austria-Hungary held <a href=\"https://en.wikipedia.org/wiki/Kingdom_of_Serbia\">Serbia</a> responsible, and declared war on 28 July. <a href=\"https://en.wikipedia.org/wiki/Russian_Empire\">Russia</a> came to Serbia\'s defence, and by 4 August, <a href=\"https://en.wikipedia.org/wiki/German_Empire\">Germany</a>, <a href=\"https://en.wikipedia.org/wiki/French_Third_Republic\">France</a>, and <a href=\"https://en.wikipedia.org/wiki/United_Kingdom_of_Great_Britain_and_Ireland\">Britain</a> were drawn into the war, with the <a href=\"https://en.wikipedia.org/wiki/Ottoman_Empire\">Ottoman Empire</a> joining in November of the same year. <a href=\"https://en.wikipedia.org/wiki/Schlieffen_Plan\">Germany\'s strategy in 1914</a> was to first defeat France, then transfer forces to the Russian front. However, this <a href=\"https://en.wikipedia.org/wiki/First_Battle_of_the_Marne\">failed</a>, and by the end of 1914, the <a href=\"https://en.wikipedia.org/wiki/Western_Front_(World_War_I)\">Western Front</a> consisted of a continuous line of <a href=\"https://en.wikipedia.org/wiki/Trench_warfare\">trenches</a> stretching from the <a href=\"https://en.wikipedia.org/wiki/English_Channel\">English Channel</a> to <a href=\"https://en.wikipedia.org/wiki/Switzerland_during_the_World_Wars\">Switzerland</a>. The <a href=\"https://en.wikipedia.org/wiki/Eastern_Front_(World_War_I)\">Eastern Front</a> was more dynamic, but neither side could gain a decisive advantage, despite costly offensives. As the war expanded to more fronts, <a href=\"https://en.wikipedia.org/wiki/Bulgaria_during_World_War_I\">Bulgaria</a>, <a href=\"https://en.wikipedia.org/wiki/Military_history_of_Italy_during_World_War_I\">Italy</a>, <a href=\"https://en.wikipedia.org/wiki/Romania_in_World_War_I\">Romania</a>, <a href=\"https://en.wikipedia.org/wiki/Greece_during_World_War_I\">Greece</a> and others joined in from 1915 onward.</p><p>In early 1917, the <a href=\"https://en.wikipedia.org/wiki/American_entry_into_World_War_I\">United States entered the war</a> on the Allies\' side, and later the same year, the <a href=\"https://en.wikipedia.org/wiki/Bolsheviks\">Bolsheviks</a> seized power in the Russian <a href=\"https://en.wikipedia.org/wiki/October_Revolution\">October Revolution</a>, making <a href=\"https://en.wikipedia.org/wiki/Treaty_of_Brest-Litovsk\">peace</a> with the Central Powers in early 1918. Germany launched an <a href=\"https://en.wikipedia.org/wiki/German_spring_offensive\">offensive</a> in the west in March 1918, and despite initial successes, it left the <a href=\"https://en.wikipedia.org/wiki/Imperial_German_Army\">German Army</a> exhausted and demoralised. A successful Allied <a href=\"https://en.wikipedia.org/wiki/Hundred_Days_Offensive\">counter-offensive</a> later that year caused a collapse of the German frontline. By the end of 1918, Bulgaria, the Ottoman Empire and Austria-Hungary agreed to armistices with the Allies, leaving Germany isolated. Facing <a href=\"https://en.wikipedia.org/wiki/German_Revolution_of_1918%E2%80%931919\">revolution</a> at home and with his army on the verge of mutiny, <a href=\"https://en.wikipedia.org/wiki/Wilhelm_II,_German_Emperor\">Kaiser Wilhelm&nbsp;II</a> abdicated on 9 November.</p><p>The fighting ended with the <a href=\"https://en.wikipedia.org/wiki/Armistice_of_11_November_1918\">Armistice of 11 November 1918</a>, while the subsequent <a href=\"https://en.wikipedia.org/wiki/Paris_Peace_Conference_(1919%E2%80%931920)\">Paris Peace Conference</a> imposed various settlements on the defeated powers, notably the <a href=\"https://en.wikipedia.org/wiki/Treaty_of_Versailles\">Treaty of Versailles</a>. The dissolution of the Russian, German, Austro-Hungarian, and Ottoman Empires resulted in the creation of new independent states, including <a href=\"https://en.wikipedia.org/wiki/Second_Polish_Republic\">Poland</a>, <a href=\"https://en.wikipedia.org/wiki/Finland\">Finland</a>, <a href=\"https://en.wikipedia.org/wiki/First_Czechoslovak_Republic\">Czechoslovakia</a>, and <a href=\"https://en.wikipedia.org/wiki/Kingdom_of_Yugoslavia\">Yugoslavia</a>. The inability to manage <a href=\"https://en.wikipedia.org/wiki/Interwar_period\">post-war instability</a> <a href=\"https://en.wikipedia.org/wiki/Causes_of_World_War_II\">contributed</a> to the outbreak of <a href=\"https://en.wikipedia.org/wiki/World_War_II\">World War&nbsp;II</a> in September 1939.</p>', 1, 2, '2024-03-06 10:30:08', '2024-03-11 18:15:58'),
-(7, 'A professional sumo bout', 1, 'https://live.staticflickr.com/65535/53627111673_b8639ef600_o.jpg', '<figure class=\"image image_resized image-style-side\" style=\"width:25.38%;\"><img style=\"aspect-ratio:1280/853;\" src=\"https://live.staticflickr.com/65535/53627094598_7ecbb42520_o.jpg\" width=\"1280\" height=\"853\"><figcaption>Sumo wrestlers at the Grand Tournament in <a href=\"https://en.wikipedia.org/wiki/Osaka\">Osaka</a>, March 2006</figcaption></figure><p>At the initial charge, both wrestlers must jump up from the <a href=\"https://en.wikipedia.org/wiki/Squatting_position\">crouch</a> simultaneously after touching the surface of the ring with two fists at the start of the bout. The referee (<i>gyōji</i>) can restart the bout if this simultaneous touch does not occur.</p><p>Upon completion of the bout, the referee must immediately designate his decision by pointing his <a href=\"https://en.wikipedia.org/wiki/Gunbai\"><i>gunbai</i></a> or war-fan towards the winning side. The winning technique (<a href=\"https://en.wikipedia.org/wiki/Kimarite\"><i>kimarite</i></a>) used by the winner would then be announced to the audience. The wrestlers then return to their starting positions and bow to each other before retiring.</p><p>The referee\'s decision is not final and may be disputed by the five <a href=\"https://en.wikipedia.org/wiki/Judge_(sumo)\">judges</a> seated around the ring. If this happens, they meet in the center of the ring to hold a <i>mono-ii</i> (a talk about things). After reaching a consensus, they can uphold or reverse the referee\'s decision or order a rematch, known as a <a href=\"https://en.wikipedia.org/wiki/Torinaoshi\"><i>torinaoshi</i></a>.</p><p>A winning wrestler in the top division may receive additional prize money in envelopes from the referee if the matchup has been sponsored. If a <i>yokozuna </i>is defeated by a lower-ranked wrestler, it is common and expected for audience members to throw their seat cushions into the ring (and onto the wrestlers), though this practice is technically prohibited.</p><p>In contrast to the time in bout preparation, bouts are typically very short, usually less than a minute (most of the time only a few seconds). Extremely rarely, a bout can go on for several minutes.</p><figure class=\"media\"><div data-oembed-url=\"https://www.youtube.com/watch?v=NN2ZRWusYZo\"><div style=\"position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;\"><iframe src=\"https://www.youtube.com/embed/NN2ZRWusYZo\" style=\"position: absolute; width: 100%; height: 100%; top: 0; left: 0;\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen=\"\"></iframe></div></div></figure>', 4, 4, '2024-04-02 16:26:49', '2024-04-02 16:26:49'),
-(8, 'How to disable push messages on Samsung cell phones?', 1, 'https://live.staticflickr.com/65535/53692083630_71fd1fe1be_o.jpg', '<figure class=\"image image_resized\" style=\"width:21.61%;\"><img style=\"aspect-ratio:449/685;\" src=\"https://live.staticflickr.com/65535/53690747287_908e80e964_o.jpg\" width=\"449\" height=\"685\"></figure><h4>What Are Push Messages?</h4><p>A push(pop-up) message is a type of message displayed on the home screen or lock screen even when you’re not using an app. It contains content such as advertisements, news or information introducing network service packages. Push messages from carriers Viettel, VinaPhone and MobiFone are currently very popular. It makes users feel uncomfortable because it keeps the screen bright and consumes a lot of battery.</p><h4>How To Disable Push Messages?</h4><p>Go to <strong>Settings</strong> &gt; <strong>Apps</strong>, then turn off <strong>Show as pop-up</strong>. Make sure you apply this setting for some apps like Messages and SIM toolkit.</p><figure class=\"image image_resized\" style=\"width:42.03%;\"><img style=\"aspect-ratio:1200/2000;\" src=\"https://live.staticflickr.com/65535/53692074620_b70204979a_o.jpg\" width=\"1200\" height=\"2000\"></figure>', 2, 2, '2024-05-01 21:59:45', '2024-05-01 22:02:40');
+(7, 'A professional sumo bout', 2, 'https://live.staticflickr.com/65535/53627111673_b8639ef600_o.jpg', '<figure class=\"image image_resized image-style-side\" style=\"width:25.38%;\"><img style=\"aspect-ratio:1280/853;\" src=\"https://live.staticflickr.com/65535/53627094598_7ecbb42520_o.jpg\" width=\"1280\" height=\"853\"><figcaption>Sumo wrestlers at the Grand Tournament in <a href=\"https://en.wikipedia.org/wiki/Osaka\">Osaka</a>, March 2006</figcaption></figure><p>At the initial charge, both wrestlers must jump up from the <a href=\"https://en.wikipedia.org/wiki/Squatting_position\">crouch</a> simultaneously after touching the surface of the ring with two fists at the start of the bout. The referee (<i>gyōji</i>) can restart the bout if this simultaneous touch does not occur.</p><p>Upon completion of the bout, the referee must immediately designate his decision by pointing his <a href=\"https://en.wikipedia.org/wiki/Gunbai\"><i>gunbai</i></a> or war-fan towards the winning side. The winning technique (<a href=\"https://en.wikipedia.org/wiki/Kimarite\"><i>kimarite</i></a>) used by the winner would then be announced to the audience. The wrestlers then return to their starting positions and bow to each other before retiring.</p><p>The referee\'s decision is not final and may be disputed by the five <a href=\"https://en.wikipedia.org/wiki/Judge_(sumo)\">judges</a> seated around the ring. If this happens, they meet in the center of the ring to hold a <i>mono-ii</i> (a talk about things). After reaching a consensus, they can uphold or reverse the referee\'s decision or order a rematch, known as a <a href=\"https://en.wikipedia.org/wiki/Torinaoshi\"><i>torinaoshi</i></a>.</p><p>A winning wrestler in the top division may receive additional prize money in envelopes from the referee if the matchup has been sponsored. If a <i>yokozuna </i>is defeated by a lower-ranked wrestler, it is common and expected for audience members to throw their seat cushions into the ring (and onto the wrestlers), though this practice is technically prohibited.</p><p>In contrast to the time in bout preparation, bouts are typically very short, usually less than a minute (most of the time only a few seconds). Extremely rarely, a bout can go on for several minutes.</p><figure class=\"media\"><div data-oembed-url=\"https://www.youtube.com/watch?v=NN2ZRWusYZo\"><div style=\"position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;\"><iframe src=\"https://www.youtube.com/embed/NN2ZRWusYZo\" style=\"position: absolute; width: 100%; height: 100%; top: 0; left: 0;\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen=\"\"></iframe></div></div></figure>', 4, 1, '2024-04-02 16:26:49', '2024-05-28 09:30:31'),
+(8, 'How to disable push messages on Samsung cell phones?', 2, 'https://live.staticflickr.com/65535/53692083630_71fd1fe1be_o.jpg', '<figure class=\"image image_resized\" style=\"width:21.61%;\"><img style=\"aspect-ratio:449/685;\" src=\"https://live.staticflickr.com/65535/53690747287_908e80e964_o.jpg\" width=\"449\" height=\"685\"></figure><h4>What Are Push Messages?</h4><p>A push(pop-up) message is a type of message displayed on the home screen or lock screen even when you’re not using an app. It contains content such as advertisements, news or information introducing network service packages. Push messages from carriers Viettel, VinaPhone and MobiFone are currently very popular. It makes users feel uncomfortable because it keeps the screen bright and consumes a lot of battery.</p><h4>How To Disable Push Messages?</h4><p>Go to <strong>Settings</strong> &gt; <strong>Apps</strong>, then turn off <strong>Show as pop-up</strong>. Make sure you apply this setting for some apps like Messages and SIM toolkit.</p><figure class=\"image image_resized\" style=\"width:42.03%;\"><img style=\"aspect-ratio:1200/2000;\" src=\"https://live.staticflickr.com/65535/53692074620_b70204979a_o.jpg\" width=\"1200\" height=\"2000\"></figure>', 2, 1, '2024-05-01 21:59:45', '2024-05-28 09:10:54'),
+(9, 'Extreme Temperatures Linked to Increased Risk for Stroke Death', 1, '', '<p>&nbsp;</p><figure class=\"image image-style-side\"><img style=\"aspect-ratio:374/268;\" src=\"https://live.staticflickr.com/65535/53754135181_30f520085e_o.jpg\" width=\"374\" height=\"268\"></figure><p>FRIDAY, May 24, 2024 (HealthDay News) -- Extreme cold and hot temperatures are associated with an increased risk for death from ischemic and hemorrhagic strokes, according to a study published online May 22 in <i>Stroke</i>.</p><p>Barrak Alahmad, M.D., Ph.D., from the Harvard T.H. Chan School of Public Health in Boston, and colleagues built a new mortality database for ischemic and hemorrhagic stroke within the Multi-Country Multi-City Network by applying a unified analysis protocol. A multinational case-crossover study was conducted on the relationship between extreme temperatures and stroke. Excess deaths in each city attributed to the 2.5 percent hottest and coldest days were computed based on each city\'s temperature distribution.</p><p>Data were obtained for 3,443,969 ischemic stroke deaths and 2,454,267 hemorrhagic stroke deaths from 522 cities in 25 countries. The researchers found that extreme cold and hot days contributed 9.1 and 2.2 excess deaths, respectively, for every 1,000 ischemic stroke deaths and 11.2 and 0.7 excess deaths, respectively, for every 1,000 hemorrhagic stroke deaths. Countries with low versus high gross domestic product per capita had an increased risk for heat-related hemorrhagic stroke mortality.</p><p>\"As temperatures become more extreme, we foresee an increase in fatal strokes and a widening disparity in stroke mortality between high- and low-income countries, as the latter are likely to bear the brunt of climate change,\" Alahmad said in a statement.</p><p>&nbsp;</p>', 2, 2, '2024-05-29 12:15:06', '2024-05-29 12:15:06'),
+(10, 'Risk for Periprosthetic Joint Infections Increased With Chemo After Arthroplasty', 1, '', '<figure class=\"image image-style-side\"><img style=\"aspect-ratio:370/277;\" src=\"https://live.staticflickr.com/65535/53753229392_b17e60f308_o.jpg\" width=\"370\" height=\"277\"></figure><p>FRIDAY, May 24, 2024 (HealthDay News) -- Postoperative chemotherapy is associated with an increased incidence of periprosthetic joint infections (PJI) among patients with total joint arthroplasties, according to a study published online May 2 in the <i>Archives of Orthopaedic and Trauma Surgery</i>.</p><p>Amir Human Hoveidaei, M.D., from the Rubin Institute for Advanced Orthopedics at the Sinai Hospital of Baltimore, and colleagues examined whether chemotherapy increases PJI rates in patients who received postarthroplasty chemotherapy within one year of surgery. Patients in a matched control group did not receive postarthroplasty chemotherapy. Data were included from 8,558 total knee arthroplasty (TKA) patients; 6,707 total hip arthroplasty (THA) patients; and 1,761 total shoulder arthroplasty (TSA) patients.</p><p>The researchers found that PJI rates were significantly higher in the chemotherapy group at two, three, and four years for TKA (odds ratios, 1.59, 1.57, and 1.40, respectively) and at two, three, and four years for THA (odds ratios, 2.27, 2.32, and 2.25, respectively). After four years, TSA patients had a significant increase in PJI rates (odds ratio, 2.20).</p><p>\"Postoperative chemotherapy agents may potentiate the development of PJI in patients who have undergone knee, hip, or shoulder joint arthroplasty. Future prospective studies focusing on this potential correlation would be crucial, so that essential and preventive measures can be taken into account,\" the authors write.</p>', 2, 2, '2024-05-29 12:17:15', '2024-05-29 12:17:15'),
+(11, 'Kidneys From Deceased Donors Who Were on Dialysis Are Suboptimal', 1, '', '<figure class=\"image image-style-side\"><img style=\"aspect-ratio:373/273;\" src=\"https://live.staticflickr.com/65535/53754561960_759c49de59_o.jpg\" width=\"373\" height=\"273\"></figure><p>FRIDAY, May 24, 2024 (HealthDay News) -- Receipt of a kidney from a deceased donor who underwent dialysis is associated with an increased incidence of delayed graft function, according to a study published online May 23 in the <i>Journal of the American Medical Association</i>.</p><p>Yumeng Wen, M.D., Ph.D., from Johns Hopkins University in Baltimore, and colleagues compared outcomes of transplant recipients who received kidneys from deceased donors who underwent dialysis prior to kidney donation versus recipients of kidneys from deceased donors who did not undergo dialysis in a retrospective cohort study using data from 58 U.S. organ procurement organizations.</p><p>Among the donors with kidneys transplanted, 514 underwent dialysis prior to transplantation and were matched to 514 who did not undergo dialysis. The researchers found that compared with kidney transplants from donors who did not receive dialysis, kidney transplants from donors who received dialysis prior to donation had an increased risk for delayed graft function (59.2 versus 24.6 percent; adjusted odds ratio, 4.17). At a median follow-up of 34.1 months, the incidence rates did not differ significantly for all-cause graft failure, death-censured graft failure, or death for transplants from donors who received dialysis prior to donation versus donors who did not receive dialysis.</p><p>\"Future research should investigate whether the higher procurement and acceptance rates of kidneys from deceased donors who received dialysis are associated with shorter waiting times and better outcomes for patients,\" the authors write.</p><p>Several authors disclosed ties to the biopharmaceutical industry.</p>', 2, 2, '2024-05-29 12:19:04', '2024-05-29 12:19:04'),
+(12, 'Mental Disorders May Be Transmitted Within Teen Peer Networks', 1, '', '<figure class=\"image image-style-side\"><img style=\"aspect-ratio:360/276;\" src=\"https://live.staticflickr.com/65535/53753234397_471f5d00c9_o.jpg\" width=\"360\" height=\"276\"></figure><p>FRIDAY, May 24, 2024 (HealthDay News) -- Mental disorders may be transmitted within an adolescent peer network, according to a study published online May 22 in <i>JAMA Psychiatry</i>.</p><p>Jussi Alho, Ph.D., from the University of Helsinki, and colleagues examined whether having classmates with a mental disorder diagnosis in ninth grade of comprehensive school is associated with a later risk for diagnosis with a mental disorder using data from a population-based registry study of all Finnish citizens born between Jan. 1, 1985, and Dec. 31, 1997.</p><p>The researchers found that 47,433 of the 713,809 cohort members had a mental disorder diagnosis by ninth grade. Of the remaining cohort members, 25.1 percent received a mental disorder diagnosis during 7.3 million person-years of follow-up. There was a dose-response association, with no significant increase in later risk with one diagnosed classmate but an increase with more than one diagnosed classmate (hazard ratio, 1.05). The risk was highest during the first year of follow-up (hazard ratios, 1.09 and 1.18 for one and more than one diagnosed classmate, respectively), but risk was not proportional over time. The greatest risk was seen for mood, anxiety, and eating disorders. After adjustment for an array of confounders, increased risk persisted.</p><p>\"These findings suggest that mental disorders may be transmitted within adolescent peer networks,\" the authors write. \"Consequently, prevention and intervention measures that consider potential peer influences on early-life mental health could substantially reduce the disease burden of mental disorders in society.\"</p>', 2, 2, '2024-05-29 12:21:10', '2024-05-29 12:21:10'),
+(13, 'Prenatal Exposure to Endocrine-Disrupting Chemicals Affects Child\'s Metabolic Health', 1, 'https://live.staticflickr.com/65535/53754343408_553b9bdeb8_o.jpg', '<figure class=\"image image-style-side\"><img></figure><p>FRIDAY, May 24, 2024 (HealthDay News) -- Prenatal exposure to endocrine-disrupting chemicals (EDCs) is associated with adverse metabolic health in children, according to a study published online May 23 in <i>JAMA Network Open</i>.</p><p>Nuria Güil-Oumrait, from the Barcelona Institute for Global Health in Spain, and colleagues examined associations of prenatal exposure to EDC mixtures with the metabolic syndrome (MetS) risk score in children in a population-based, birth cohort study. Mother-child pairs with measured prenatal EDC exposures and complete data on childhood MetS risk factors, proteins, and metabolites were included; the study included 1,134 mothers and their children.</p><p>The researchers found that for each one-quartile increase of the mixture for metals, organochlorine pesticides, polybrominated diphenyl ethers, and perfluoroalkyl substances, there was an increase in the MetS score, constructed at 6 to 11 years of age (β = 0.44, 0.22, 0.17, and 0.19, respectively). Associations were seen for high-molecular weight phthalate mixture and low-molecular-weight phthalate mixtures with a reduced MetS score (β = −0.07 and −0.13, respectively). Elevated proinflammatory proteins, amino acids, and altered glycerophospholipids, which were associated with an increased MetS score, were seen in association with most EDC mixtures.</p><p>\"These findings advance our limited understanding of metabolic effects of EDC mixtures in early life and can inform more efficient early-life prevention and intervention strategies to address rising trends in MetS across the life course,\" the authors write.</p>', 2, 2, '2024-05-29 12:23:39', '2024-05-29 12:23:39'),
+(14, 'Epidural Analgesia Linked to Decline in Severe Maternal Morbidity', 1, '', '<p>FRIDAY, May 24, 2024 (HealthDay News) -- Epidural analgesia during labor is associated with a reduction in severe maternal morbidity (SMM), according to a study published online May 22 in <i>The BMJ</i>.</p><figure class=\"image image-style-side\"><img style=\"aspect-ratio:375/274;\" src=\"https://live.staticflickr.com/65535/53753240792_cbda2fe492_o.jpg\" width=\"375\" height=\"274\"></figure><p>Rachel J. Kearns, M.D., from the Glasgow Royal Infirmary in Scotland, and colleagues conducted a population-based study to examine the effect of labor epidural on SMM in 567,216 women in labor at 24+0 to 42+6 weeks of gestation delivering vaginally or through unplanned cesarean section.</p><p>The researchers found that 22.0 percent of women had epidural analgesia during labor. Overall, SMM occurred in 2,412 women (4.3 per 1,000 births). Epidural analgesia was associated with significant decreases in SMM and SMM plus critical care admission (adjusted relative risks, 0.65 and 0.46, respectively) and with a nonsignificant decrease in respiratory morbidity. The risk reduction in SMM was larger for women with a medical indication for epidural analgesia (adjusted relative risk, 0.50). The reduction was more marked for women delivering preterm (adjusted relative risk, 0.53) than those delivering at term or postterm. In the whole cohort and among those with a medical indication for epidural analgesia, the reduced risk in SMM with epidural analgesia was increasingly noticeable as gestational age at birth decreased.</p><p>\"These findings substantiate the current practice of recommending epidural analgesia during labor to women with known risk factors, underscores the importance of ensuring equitable access to such treatment, and highlights the importance of supporting women from diverse backgrounds to be able to make informed decisions relating to epidural analgesia during labor,\" the authors write.</p>', 2, 2, '2024-05-29 12:25:32', '2024-05-29 12:25:32'),
+(15, 'Antihypertensives Linked to Eczematous Dermatitis in Seniors', 1, '', '<figure class=\"image image-style-side\"><img style=\"aspect-ratio:376/267;\" src=\"https://live.staticflickr.com/65535/53754573600_cfe1566a5c_o.jpg\" width=\"376\" height=\"267\"></figure><p>FRIDAY, May 24, 2024 (HealthDay News) -- Antihypertensive drugs are associated with an increased risk for eczematous dermatitis in older adults, and the effect sizes are largest for diuretics and calcium channel blockers, according to a study published online May 22 in <i>JAMA Dermatology</i>.</p><p>Morgan Ye, M.P.H., from the University of California in San Francisco, and colleagues examined whether antihypertensive drug use is associated with eczematous dermatitis in a longitudinal cohort study of individuals aged 60 years and older without eczematous dermatitis at baseline.</p><p>The researchers found that the overall prevalence of eczematous dermatitis was 6.7 percent among 1,561,358 older adults during a median follow-up of six years. The incidence of eczematous dermatitis was higher among those receiving versus those not receiving antihypertensive drugs (12 versus 9 of 1,000 person-years of follow-up). Participants who received any antihypertensive drugs had a significantly increased risk for any eczematous dermatitis in adjusted analyses (hazard ratio, 1.29). When assessing each antihypertensive drug class individually, the largest effect sizes were seen for diuretics and calcium channel blockers, while the effect sizes were smallest for angiotensin-converting enzyme inhibitors and β-blockers (hazard ratios, 1.21, 1.16, 1.02, and 1.04, respectively).</p><p>\"Although additional research is needed to understand the mechanisms underlying the association of antihypertensive drug use and eczematous dermatitis, these data could be helpful to clinicians to guide clinical management when an older patient presents with eczematous dermatitis,\" the authors write.</p><p>Two authors disclosed ties to the pharmaceutical industry.</p>', 2, 2, '2024-05-29 12:27:32', '2024-05-29 12:27:32'),
+(16, 'Primary HPV Screening Intervals Could Be Extended', 1, 'https://live.staticflickr.com/65535/53753252602_b150363355_o.jpg', '<figure class=\"image image-style-side\"><img src=\"https://live.staticflickr.com/65535/53754490894_4a9f5b488c_o.jpg\"></figure><p>FRIDAY, May 24, 2024 (HealthDay News) -- Primary human papillomavirus (HPV) screening intervals could be extended, with the risk for cervical precancer or worse (CIN2+) eight years after negative HPV screening comparable to risk after three years in cytology cohorts, according to a study published online May 22 in <i>Cancer Epidemiology, Biomarkers &amp; Prevention</i>.</p><p>Anna Gottschlich, Ph.D., M.P.H., from the BC Women\'s Hospital and Health Services in Vancouver, British Columbia, Canada, and colleagues conducted a longitudinal cohort study involving women and individuals with a cervix (WIC) who received one to two negative HPV screens (5,546 in the HPV1 cohort; 6,624 in the HPV2 cohort) and WIC with one to two normal cytology results (782,297 in the BCS1 cohort; 673,778 in the BCS2 cohort). Participants were followed for 14 years.</p><p>The researchers found that after eight years, the cumulative risks for CIN2+ were 3.2 and 2.7 per 1,000 in HPV1 and HPV2, respectively. This was comparable to the cytology cohort risk after three years (3.3 and 2.5 per 1,000 in BCS1 and BCS2, respectively). After 10 years, the cumulative risk for CIN2+ was low in the HPV cohorts (4.7 and 3.9 per 1,000 in HPV1 and HPV2, respectively).</p><p>\"These findings should provide assurance that the five-year interval recommended for HPV screening is even safer than the three-year interval for cytology screening,\" Gottschlich said in a statement.</p><p>Two authors disclosed ties to the pharmaceutical industry; one has a patent registered on DNA methylation markers for early detection of cervical cancer.</p>', 2, 2, '2024-05-29 12:33:47', '2024-05-29 12:33:47');
 
 -- --------------------------------------------------------
 
@@ -62,7 +70,7 @@ CREATE TABLE `article_votes` (
   `updated_by` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `article_votes`
@@ -72,7 +80,17 @@ INSERT INTO `article_votes` (`id`, `article_id`, `created_by`, `updated_by`, `cr
 (1, 1, 1, 1, '2024-03-07 10:25:25', '2024-03-07 10:25:25'),
 (2, 2, 1, 1, '2024-03-07 10:25:25', '2024-03-07 10:25:25'),
 (12, 7, 4, 4, '2024-04-02 16:26:49', '2024-04-02 16:26:49'),
-(13, 8, 2, 2, '2024-05-01 21:59:45', '2024-05-01 21:59:45');
+(13, 8, 2, 2, '2024-05-01 21:59:45', '2024-05-01 21:59:45'),
+(14, 8, 1, 1, '2024-05-28 09:10:54', '2024-05-28 09:10:54'),
+(15, 7, 1, 1, '2024-05-28 09:30:31', '2024-05-28 09:30:31'),
+(16, 9, 2, 2, '2024-05-29 12:15:06', '2024-05-29 12:15:06'),
+(17, 10, 2, 2, '2024-05-29 12:17:15', '2024-05-29 12:17:15'),
+(18, 11, 2, 2, '2024-05-29 12:19:04', '2024-05-29 12:19:04'),
+(19, 12, 2, 2, '2024-05-29 12:21:10', '2024-05-29 12:21:10'),
+(20, 13, 2, 2, '2024-05-29 12:23:39', '2024-05-29 12:23:39'),
+(21, 14, 2, 2, '2024-05-29 12:25:32', '2024-05-29 12:25:32'),
+(22, 15, 2, 2, '2024-05-29 12:27:32', '2024-05-29 12:27:32'),
+(23, 16, 2, 2, '2024-05-29 12:33:47', '2024-05-29 12:33:47');
 
 -- --------------------------------------------------------
 
@@ -90,16 +108,17 @@ CREATE TABLE `discussions` (
   `updated_by` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `discussions`
 --
 
 INSERT INTO `discussions` (`id`, `name`, `content`, `votes`, `thumbnail`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(5, 'What\'s so \"dangerous\" about C/C++?', '<p>C++ beginner (not a developer, just someone who codes for fun)</p><p>Since the announcement from the US government that developer should use memory safe languages (I think they referenced Rust and C# as examples), I\'m seeing articles constantly about the topics. My question is: why are C/C++ \"dangerous\"? From what I know, if I use new/alloc and delete/free on everything I create I create on the heap there should be no problems right?</p><p>If it\'s beyond that, could someone explain it? What are the other potential pitfalls with C/C++ programming?</p>', 1, '', 3, 3, '2024-03-31 21:52:04', '2024-03-31 21:52:04'),
+(5, 'What\'s so \"dangerous\" about C/C++?', '<p>C++ beginner (not a developer, just someone who codes for fun)</p><p>Since the announcement from the US government that developer should use memory safe languages (I think they referenced Rust and C# as examples), I\'m seeing articles constantly about the topics. My question is: why are C/C++ \"dangerous\"? From what I know, if I use new/alloc and delete/free on everything I create I create on the heap there should be no problems right?</p><p>If it\'s beyond that, could someone explain it? What are the other potential pitfalls with C/C++ programming?</p>', 2, '', 3, 2, '2024-03-31 21:52:04', '2024-05-13 19:44:54'),
 (6, 'Messi at Publix', '<p>A sight id never thought I’d see</p><figure class=\"image image_resized\" style=\"width:62.46%;\"><img style=\"aspect-ratio:1980/1320;\" src=\"https://live.staticflickr.com/65535/53624242467_744d840d6b_o.jpg\" width=\"1980\" height=\"1320\"></figure>', 1, 'https://live.staticflickr.com/65535/53625466584_622806e2b0_o.jpg', 1, 1, '2024-04-01 21:38:29', '2024-04-01 21:38:29'),
-(13, 'Web standards for the future', '<figure class=\"media\"><div data-oembed-url=\"https://www.youtube.com/watch?v=2_Si-iD8ZRQ\"><div style=\"position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;\"><iframe src=\"https://www.youtube.com/embed/2_Si-iD8ZRQ\" style=\"position: absolute; width: 100%; height: 100%; top: 0; left: 0;\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen=\"\"></iframe></div></div></figure>', 1, '', 4, 4, '2024-04-02 16:03:28', '2024-04-02 16:03:28');
+(13, 'Web standards for the future', '<figure class=\"media\"><div data-oembed-url=\"https://www.youtube.com/watch?v=2_Si-iD8ZRQ\"><div style=\"position: relative; padding-bottom: 100%; height: 0; padding-bottom: 56.2493%;\"><iframe src=\"https://www.youtube.com/embed/2_Si-iD8ZRQ\" style=\"position: absolute; width: 100%; height: 100%; top: 0; left: 0;\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen=\"\"></iframe></div></div></figure>', 1, '', 4, 4, '2024-04-02 16:03:28', '2024-04-02 16:03:28'),
+(14, 'YouTube main page has all small previews of movies on Google Chrome', '<p>Out of nowhere, my YouTube homepage has went from showing 3 good sized images of videos per row to now showing 4 smaller sized images with a column of black/dead space between the left navigation bar and where the 1st video of each row starts. I haven\'t changed any settings and no clue why this happened and how to revert to the old way because I don\'t subscribe to much and this is causing way too much clutter.</p>', 1, '', 2, 2, '2024-05-29 12:31:08', '2024-05-29 12:31:08');
 
 -- --------------------------------------------------------
 
@@ -114,7 +133,7 @@ CREATE TABLE `discussion_votes` (
   `updated_by` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `discussion_votes`
@@ -123,7 +142,9 @@ CREATE TABLE `discussion_votes` (
 INSERT INTO `discussion_votes` (`id`, `discussion_id`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
 (9, 5, 3, 3, '2024-03-31 21:52:04', '2024-03-31 21:52:04'),
 (10, 6, 1, 1, '2024-04-01 21:38:29', '2024-04-01 21:38:29'),
-(17, 13, 4, 4, '2024-04-02 16:03:28', '2024-04-02 16:03:28');
+(17, 13, 4, 4, '2024-04-02 16:03:28', '2024-04-02 16:03:28'),
+(18, 5, 2, 2, '2024-05-13 19:44:54', '2024-05-13 19:44:54'),
+(19, 14, 2, 2, '2024-05-29 12:31:08', '2024-05-29 12:31:08');
 
 -- --------------------------------------------------------
 
@@ -144,7 +165,7 @@ CREATE TABLE `events` (
   `created_by` int(11) NOT NULL,
   `updated_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `events`
@@ -179,7 +200,7 @@ CREATE TABLE `event_tags` (
   `updated_at` datetime NOT NULL,
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `event_tags`
@@ -210,7 +231,7 @@ CREATE TABLE `file_uploads` (
   `created_at` datetime NOT NULL,
   `updated_by` int(11) NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `file_uploads`
@@ -246,7 +267,15 @@ INSERT INTO `file_uploads` (`id`, `created_by`, `created_at`, `updated_by`, `upd
 (72, 2, '2024-05-01 21:51:32', 2, '2024-05-01 21:51:32'),
 (73, 2, '2024-05-01 21:52:47', 2, '2024-05-01 21:52:47'),
 (74, 2, '2024-05-01 21:54:55', 2, '2024-05-01 21:54:55'),
-(75, 2, '2024-05-01 21:55:48', 2, '2024-05-01 21:55:48');
+(75, 2, '2024-05-01 21:55:48', 2, '2024-05-01 21:55:48'),
+(76, 2, '2024-05-29 12:11:22', 2, '2024-05-29 12:11:22'),
+(77, 2, '2024-05-29 12:17:10', 2, '2024-05-29 12:17:10'),
+(78, 2, '2024-05-29 12:18:59', 2, '2024-05-29 12:18:59'),
+(79, 2, '2024-05-29 12:20:51', 2, '2024-05-29 12:20:51'),
+(80, 2, '2024-05-29 12:23:46', 2, '2024-05-29 12:23:46'),
+(81, 2, '2024-05-29 12:25:29', 2, '2024-05-29 12:25:29'),
+(82, 2, '2024-05-29 12:27:28', 2, '2024-05-29 12:27:28'),
+(83, 2, '2024-05-29 12:33:44', 2, '2024-05-29 12:33:44');
 
 -- --------------------------------------------------------
 
@@ -263,18 +292,20 @@ CREATE TABLE `opinions` (
   `updated_by` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `opinions`
 --
 
 INSERT INTO `opinions` (`id`, `discussion_id`, `content`, `votes`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(52, 5, '<p>Sometimes people make mistakes. Sometimes they don\'t allocate enough memory, and someone manages to enter a string that goes beyond the memory buffer and starts corrupting other data...</p>', 1, 2, 2, '2024-03-31 21:52:46', '2024-04-25 21:11:19'),
+(52, 5, '<p>Sometimes people make mistakes. Sometimes they don\'t allocate enough memory, and someone manages to enter a string that goes beyond the memory buffer and starts corrupting other data ...</p>', 1, 2, 2, '2024-03-31 21:52:46', '2024-05-13 19:45:16'),
 (54, 5, '<blockquote><p>From what I know, if I use new/alloc and delete/free on everything I create I create on the heap there should be no problems right?</p></blockquote><p>Just like we have no car accidents if people don\'t drive into things.</p><p>So why does not all driver just decide to not drive into things?</p><p>Programmers attempt to make good software but it is natural to make mistakes. Even if you have plenty of tests you can make mistakes which are not noticed. This is the point of using safe programming languages, when you have built in safety meassures, the risk of some mistakes are much lower.</p>', 2, 1, 2, '2024-03-31 21:58:40', '2024-04-17 20:16:56'),
 (55, 6, '<p>It’s official, Messi’s a Floridian</p>', 2, 4, 2, '2024-04-02 15:29:15', '2024-05-01 21:14:00'),
 (56, 5, '<p>Is learining Python gonna be enough for near future then?</p><p>I ask this because whenever I use python, I have to use different libraries to do almost anything, and those libraries are mostly written in C/C++ instead of Python itself.</p>', 1, 2, 2, '2024-04-17 20:19:10', '2024-05-01 21:11:09'),
-(57, 6, '<p>Grabbing a pub sub. Man of culture</p>', 1, 2, 2, '2024-05-01 21:13:48', '2024-05-01 21:13:48');
+(57, 6, '<p>Grabbing a pub sub. Man of culture</p>', 1, 2, 2, '2024-05-01 21:13:48', '2024-05-01 21:13:48'),
+(58, 5, '<p>test</p>', 1, 2, 2, '2024-05-13 19:46:02', '2024-05-13 19:46:02'),
+(59, 14, '<p>Same happened with me too. Just noticed. Damn it.!</p>', 1, 1, 1, '2024-05-29 12:38:26', '2024-05-29 12:38:26');
 
 -- --------------------------------------------------------
 
@@ -289,7 +320,7 @@ CREATE TABLE `opinion_votes` (
   `updated_by` int(11) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `opinion_votes`
@@ -302,7 +333,9 @@ INSERT INTO `opinion_votes` (`id`, `opinion_id`, `created_by`, `updated_by`, `cr
 (62, 56, 2, 2, '2024-04-17 20:19:10', '2024-04-17 20:19:10'),
 (63, 52, 2, 2, '2024-04-25 21:11:19', '2024-04-25 21:11:19'),
 (64, 57, 2, 2, '2024-05-01 21:13:48', '2024-05-01 21:13:48'),
-(65, 55, 2, 2, '2024-05-01 21:14:00', '2024-05-01 21:14:00');
+(65, 55, 2, 2, '2024-05-01 21:14:00', '2024-05-01 21:14:00'),
+(66, 58, 2, 2, '2024-05-13 19:46:02', '2024-05-13 19:46:02'),
+(67, 59, 1, 1, '2024-05-29 12:38:26', '2024-05-29 12:38:26');
 
 -- --------------------------------------------------------
 
@@ -317,7 +350,7 @@ CREATE TABLE `roles` (
   `updated_at` datetime NOT NULL,
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `roles`
@@ -341,7 +374,7 @@ CREATE TABLE `roles_users` (
   `updated_at` datetime NOT NULL,
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `roles_users`
@@ -370,15 +403,15 @@ CREATE TABLE `user` (
   `api_token` char(60) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `api_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'nvnit1176211@gmail.com', '$2y$10$N.ohMl/ujoSQTjwAbfIvJ.RFb03tkFeFbA8l.LOcHj4bViQ.xAsLq', '54CvS3ICQKNw0cqBHwsoLl0AykhylC8NwfsYs6ZQAcgAJ6DYsKjcYBf7qQJn', '2022-12-23 01:02:06', '2024-04-17 20:06:00'),
-(2, 'user1', '2nvn1176211@gmail.com', '$2y$10$N.ohMl/ujoSQTjwAbfIvJ.RFb03tkFeFbA8l.LOcHj4bViQ.xAsLq', 'vmiRO2A75uEbUCvNnEr1g3CDnEuOBFghRglx92Scp8hrSrXcWN6kUPmO73Iw', '2024-01-17 10:16:23', '2024-04-25 21:12:11'),
+(1, 'admin', 'nvnit1176211@gmail.com', '$2y$10$GMqN3y1AtVb8o/7l6rj/iOrC0yfRzKukPhnzP9hlyvrvCgel9sx5G', 'lUxZEcG42IqAsGXnJAxMYHPiSrOC1JPbUhcZ4DB4NhteQ6Im8MmWgwwIMLYS', '2022-12-23 01:02:06', '2024-05-29 12:36:11'),
+(2, 'user1', '2nvn1176211@gmail.com', '$2y$10$N.ohMl/ujoSQTjwAbfIvJ.RFb03tkFeFbA8l.LOcHj4bViQ.xAsLq', '6tOZzXzgIVtSSszR4salAqz1devY5mWv0r5JOeNfTSFQtvKPyEYDNZmF8miC', '2024-01-17 10:16:23', '2024-05-29 12:08:41'),
 (3, 'user2', 'nvnit11762112@gmail.com', '$2y$10$N.ohMl/ujoSQTjwAbfIvJ.RFb03tkFeFbA8l.LOcHj4bViQ.xAsLq', '2', '2022-12-24 04:32:10', '2023-10-22 09:15:09'),
 (4, 'user3', 'nvnit11762113@gmail.com', '$2y$10$N.ohMl/ujoSQTjwAbfIvJ.RFb03tkFeFbA8l.LOcHj4bViQ.xAsLq', '3', '2024-01-17 10:14:48', '2024-01-17 10:14:48'),
 (16, 'user4', 'nvnit11762114@gmail.com', '$2y$10$N.ohMl/ujoSQTjwAbfIvJ.RFb03tkFeFbA8l.LOcHj4bViQ.xAsLq', 'TKKVel0lh1yvxLBAzYxjBRHw0lVm43c5lpLgf7DizG0PCXgCfGScsxSlAuzw', '2024-01-17 09:33:34', '2024-03-08 17:26:03'),
@@ -398,7 +431,7 @@ CREATE TABLE `votes` (
   `updated_at` datetime NOT NULL,
   `created_by` int(11) NOT NULL,
   `updated_by` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `votes`
@@ -546,25 +579,25 @@ ALTER TABLE `votes`
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `article_votes`
 --
 ALTER TABLE `article_votes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `discussions`
 --
 ALTER TABLE `discussions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `discussion_votes`
 --
 ALTER TABLE `discussion_votes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `events`
@@ -582,19 +615,19 @@ ALTER TABLE `event_tags`
 -- AUTO_INCREMENT for table `file_uploads`
 --
 ALTER TABLE `file_uploads`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT for table `opinions`
 --
 ALTER TABLE `opinions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `opinion_votes`
 --
 ALTER TABLE `opinion_votes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `roles`

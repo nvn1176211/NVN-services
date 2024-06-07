@@ -120,7 +120,14 @@ class DiscussionsController extends Controller
         $discussionVote->updated_by = $user->id;
         $discussionVote->save();
         return response()->json([
-            'message' => 'New discussion added.'
+            "author_name" => $user->username,
+            "f1_created_at" => $discussion->created_at->format('Y/m/d H:i'),
+            "id" => $discussion->id,
+            "name" => $discussion->name,
+            "thumbnail" => $discussion->thumbnail,
+            "type" => 'discussions',
+            "voted" => "yes",
+            "votes" => 1,
         ], 201);
     }
 
